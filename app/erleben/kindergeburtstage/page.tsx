@@ -24,27 +24,39 @@ export default function KindergeburtstagePage() {
           <p className="text-xl text-sand-200/70 max-w-2xl leading-relaxed">Ein unvergesslicher Geburtstag auf dem Hof – mit Pferden, Natur und glücklichen Kinderaugen.</p>
         </motion.div>
       </header>
-      <section className="py-28 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display text-bark-900 mb-4">Feiern wie die kleinen Reiter</h2>
-          <p className="text-bark-500 leading-relaxed">Ob Ponyreiten für die Kleinen oder ein großes Abenteuer für die Großen – wir gestalten den perfekten Geburtstag.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pakete.map((p, i) => (
-            <motion.div key={p.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.5, delay: i * 0.1 }} whileHover={{ y: -4, transition: { duration: 0.25 } }} className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-sand-200 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-display font-bold text-bark-900 mb-2">{p.name}</h3>
-              <span className="text-meadow-700 text-sm font-bold">{p.dauer}</span>
-              <ul className="mt-4 space-y-2">
-                {p.inklusive.map((item) => (<li key={item} className="flex items-center gap-2 text-bark-600 text-sm"><span className="text-meadow-600">✓</span>{item}</li>))}
-              </ul>
-              <span className="block text-2xl font-display font-bold text-bark-700 mt-6">{p.preis}</span>
-              <span className="block text-xs text-bark-400 mb-4">für bis zu 10 Kinder</span>
-              <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-3 bg-bark-700 text-sand-100 font-bold rounded-xl hover:bg-bark-800 transition-colors">Geburtstag buchen</motion.button>
-            </motion.div>
-          ))}
+      <section className="py-28 bg-paper px-6 relative border-t border-sand-200/50">
+        <div 
+          className="absolute inset-0 z-0 opacity-10 mix-blend-multiply pointer-events-none"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+          }}
+        />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-display text-bark-900 mb-6">Feiern wie die kleinen Reiter</h2>
+            <p className="text-bark-600 leading-relaxed font-body text-lg italic font-caption">Ob Ponyreiten für die Kleinen oder ein großes Abenteuer für die Großen – wir gestalten den perfekten Geburtstag.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {pakete.map((p, i) => (
+              <motion.div key={p.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-sand-50 p-10 rounded-xl border border-sand-200 shadow-sm hover:shadow-rustic transition-all group flex flex-col h-full">
+                <div className="mb-6 pb-6 border-b border-sand-200">
+                  <h3 className="text-2xl font-display font-bold text-bark-900 mb-3">{p.name}</h3>
+                  <span className="bg-sand-200 text-bark-600 px-3 py-1 rounded text-xs uppercase tracking-wider font-bold">{p.dauer}</span>
+                </div>
+                <ul className="space-y-4 mb-8 flex-grow font-body text-lg text-bark-600">
+                  {p.inklusive.map((item) => (<li key={item} className="flex items-start gap-3"><span className="text-bark-400 mt-1">✓</span>{item}</li>))}
+                </ul>
+                <div className="mt-auto">
+                  <span className="block text-3xl font-display font-bold text-bark-800 mb-2">{p.preis}</span>
+                  <span className="block text-xs text-bark-400 uppercase tracking-widest font-bold mb-6">für bis zu 10 Kinder</span>
+                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Geburtstag buchen</motion.button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
-      <section className="py-28 bg-bark-800 text-sand-100 text-center px-6 relative overflow-hidden">
+      <section className="py-32 bg-bark-900 text-sand-100 text-center px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10"><div className="absolute top-0 right-0 w-80 h-80 bg-meadow-600 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" /></div>
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Termin anfragen</h2>

@@ -40,7 +40,7 @@ export default function BiohofPage() {
       </header>
 
       {/* Philosophy */}
-      <section className="py-28 px-6 max-w-7xl mx-auto">
+      <section className="py-28 px-6 max-w-7xl mx-auto bg-paper">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {principles.map((p, i) => (
             <motion.div
@@ -50,25 +50,33 @@ export default function BiohofPage() {
               className="space-y-4 border-l-4 border-bark-400 pl-6 py-2"
             >
               <h3 className="text-2xl font-display text-bark-900">{p.title}</h3>
-              <p className="text-bark-500 leading-relaxed">{p.desc}</p>
+              <p className="text-bark-600 leading-relaxed font-body text-lg">{p.desc}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Production */}
-      <section className="py-28 bg-sand-100/60 px-6">
+      <section className="py-28 bg-sand-50 px-6 border-t border-sand-200/50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}
             transition={{ duration: 0.5 }}
-            className="order-2 lg:order-1 aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-sand-200 relative"
+            className="order-2 lg:order-1 aspect-[4/3] bg-sand-200 overflow-hidden shadow-rustic relative group -rotate-1"
+            style={{
+              WebkitMaskImage: `url(/masks/edge-2.svg)`,
+              WebkitMaskSize: '100% 100%',
+              WebkitMaskRepeat: 'no-repeat',
+              maskImage: `url(/masks/edge-2.svg)`,
+              maskSize: '100% 100%',
+              maskRepeat: 'no-repeat',
+            }}
           >
             <Image 
               src="/images/biohof-milchproduktion.jpg" 
               alt="Milchproduktion am Biohof" 
               fill
-              className="object-cover" 
+              className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" 
             />
           </motion.div>
           <motion.div
@@ -76,22 +84,22 @@ export default function BiohofPage() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="order-1 lg:order-2 space-y-6"
           >
-            <h2 className="text-4xl font-display text-bark-900">Vom Euter ins Glas</h2>
-            <p className="text-lg text-bark-500 leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-display text-bark-900">Vom Euter ins Glas</h2>
+            <p className="text-lg text-bark-600 leading-relaxed font-body">
               Unsere moderne Milchproduktion verbindet technisches Know-how mit
               höchstem Respekt vor dem Tier. Wir produzieren Qualität, die man schmeckt.
             </p>
-            <ul className="space-y-4 text-bark-700">
-              <li className="flex items-center gap-3"><span className="text-meadow-600 font-bold">✓</span> DE-ÖKO-037 zertifiziert</li>
-              <li className="flex items-center gap-3"><span className="text-meadow-600 font-bold">✓</span> Regionale Vermarktung</li>
-              <li className="flex items-center gap-3"><span className="text-meadow-600 font-bold">✓</span> Ohne Gentechnik</li>
+            <ul className="space-y-4 text-bark-800 font-bold font-body text-lg">
+              <li className="flex items-center gap-3"><span className="text-bark-500">✓</span> DE-ÖKO-037 zertifiziert</li>
+              <li className="flex items-center gap-3"><span className="text-bark-500">✓</span> Regionale Vermarktung</li>
+              <li className="flex items-center gap-3"><span className="text-bark-500">✓</span> Ohne Gentechnik</li>
             </ul>
           </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-28 bg-bark-900 text-sand-100 text-center px-6 relative overflow-hidden">
+      <section className="py-32 bg-bark-900 text-sand-100 text-center px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-80 h-80 bg-meadow-600 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         </div>

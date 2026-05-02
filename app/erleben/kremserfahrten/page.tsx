@@ -25,40 +25,60 @@ export default function KremserfahrtenPage() {
           <p className="text-xl text-sand-200/70 max-w-2xl leading-relaxed">Romantik und Naturerlebnis – entdecken Sie die brandenburgische Landschaft vom Pferdewagen aus.</p>
         </motion.div>
       </header>
-      <section className="py-28 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5 }} className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display text-bark-900 leading-snug">Die Landschaft vom Wagen aus erleben</h2>
-          <div className="text-bark-500 space-y-4 leading-relaxed">
-            <p>Unsere Kremserfahrten führen Sie durch die wunderschöne Landschaft des Naturparks Nuthe-Nieplitz. Entspannt zurückgelehnt genießen Sie Ausblicke auf Wälder, Seen und Felder.</p>
-            <p>Ob als Paar, mit der Familie oder für Firmenevents – die Fahrten sind ein besonderes Erlebnis für jeden Anlass. Von April bis Oktober verfügbar.</p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 pt-4">
-            <div className="p-5 bg-sand-100 rounded-xl border border-sand-200"><span className="block text-2xl font-display font-bold text-bark-800">Apr–Okt</span><span className="text-sm text-bark-400 uppercase tracking-tight">Saison</span></div>
-            <div className="p-5 bg-sand-100 rounded-xl border border-sand-200"><span className="block text-2xl font-display font-bold text-bark-800">bis 12</span><span className="text-sm text-bark-400 uppercase tracking-tight">Personen</span></div>
-          </div>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5, delay: 0.15 }} className="aspect-[4/3] bg-sand-200 rounded-3xl overflow-hidden shadow-xl relative">
-          <Image src="/images/kremserfahrten-landschaft.jpg" alt="Kremserfahrt Landschaft" fill className="object-cover" />
-        </motion.div>
+      <section className="py-28 bg-paper px-6 relative border-t border-sand-200/50">
+        <div 
+          className="absolute inset-0 z-0 opacity-10 mix-blend-multiply pointer-events-none"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+          }}
+        />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5 }} className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-display text-bark-900 leading-snug">Die Landschaft vom Wagen aus erleben</h2>
+            <div className="text-bark-600 space-y-4 leading-relaxed font-body text-lg">
+              <p>Unsere Kremserfahrten führen Sie durch die wunderschöne Landschaft des Naturparks Nuthe-Nieplitz. Entspannt zurückgelehnt genießen Sie Ausblicke auf Wälder, Seen und Felder.</p>
+              <p>Ob als Paar, mit der Familie oder für Firmenevents – die Fahrten sind ein besonderes Erlebnis für jeden Anlass. Von April bis Oktober verfügbar.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-6 pt-8">
+              <div className="p-6 bg-sand-50/80 rounded-lg border border-sand-200 shadow-sm text-center"><span className="block text-4xl font-display font-bold text-bark-800 mb-1">Apr–Okt</span><span className="text-xs text-bark-500 uppercase tracking-widest font-bold">Saison</span></div>
+              <div className="p-6 bg-sand-50/80 rounded-lg border border-sand-200 shadow-sm text-center"><span className="block text-4xl font-display font-bold text-bark-800 mb-1">bis 12</span><span className="text-xs text-bark-500 uppercase tracking-widest font-bold">Personen</span></div>
+            </div>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5, delay: 0.15 }} 
+            className="aspect-[4/3] bg-sand-200 overflow-hidden shadow-rustic relative group -rotate-1"
+            style={{
+              WebkitMaskImage: `url(/masks/edge-1.svg)`,
+              WebkitMaskSize: '100% 100%',
+              WebkitMaskRepeat: 'no-repeat',
+              maskImage: `url(/masks/edge-1.svg)`,
+              maskSize: '100% 100%',
+              maskRepeat: 'no-repeat',
+            }}
+          >
+            <Image src="/images/kremserfahrten-landschaft.jpg" alt="Kremserfahrt Landschaft" fill className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />
+          </motion.div>
+        </div>
       </section>
-      <section className="py-28 bg-sand-100/60 px-6">
+      <section className="py-28 bg-sand-50 px-6 border-t border-sand-200/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display text-bark-900 mb-14 text-center">Unsere Routen</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="text-4xl md:text-5xl font-display text-bark-900 mb-16 text-center">Unsere Routen</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {routen.map((r, i) => (
-              <motion.div key={r.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.5, delay: i * 0.1 }} whileHover={{ y: -4, transition: { duration: 0.25 } }} className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-sand-200 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-display font-bold text-bark-900 mb-3">{r.name}</h3>
-                <span className="text-meadow-700 text-sm font-bold">{r.dauer}</span>
-                <p className="text-bark-500 mt-3 mb-6">{r.desc}</p>
-                <span className="text-2xl font-display font-bold text-bark-700">{r.preis}</span>
-                <span className="block text-xs text-bark-400 mb-4">pro Fahrt</span>
-                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-3 bg-sand-100 text-bark-700 font-bold rounded-xl hover:bg-bark-800 hover:text-sand-100 transition-colors">Fahrt buchen</motion.button>
+              <motion.div key={r.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-paper p-10 rounded-xl border border-sand-200 shadow-sm hover:shadow-rustic transition-all group flex flex-col h-full">
+                <div className="mb-6 pb-6 border-b border-sand-200">
+                  <h3 className="text-2xl font-display font-bold text-bark-900 mb-3">{r.name}</h3>
+                  <span className="bg-sand-200 text-bark-600 px-3 py-1 rounded text-xs uppercase tracking-wider font-bold">{r.dauer}</span>
+                </div>
+                <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{r.desc}</p>
+                <span className="text-3xl font-display font-bold text-bark-800 mb-2">{r.preis}</span>
+                <span className="block text-xs text-bark-400 uppercase tracking-widest font-bold mb-6">pro Fahrt</span>
+                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Fahrt buchen</motion.button>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      <section className="py-28 bg-bark-800 text-sand-100 text-center px-6 relative overflow-hidden">
+      <section className="py-32 bg-bark-900 text-sand-100 text-center px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 right-0 w-80 h-80 bg-meadow-600 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" /></div>
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Ihre Wunschfahrt</h2>
