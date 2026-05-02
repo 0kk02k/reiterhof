@@ -41,9 +41,9 @@ const config: Config = {
         }
       },
       fontFamily: {
-        display: ['Playfair Display', 'Georgia', 'serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        caption: ['Playfair Display', 'Georgia', 'serif'],
+        display: ['Lora', 'Georgia', 'serif'],
+        body: ['Nunito', 'system-ui', 'sans-serif'],
+        caption: ['Lora', 'Georgia', 'serif'],
       },
       boxShadow: {
         'rustic': '0px 10px 30px rgba(90, 75, 60, 0.1)',
