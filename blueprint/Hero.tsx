@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -14,10 +14,12 @@ const Hero: React.FC = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Parallax Background */}
       <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
-        <img
+        <Image
           src="/images/hero-bg.jpg"
           alt="Biohof Mühlenberg Pferde"
-          className="w-full h-full object-cover scale-110"
+          fill
+          priority
+          className="object-cover scale-110"
         />
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-bark-900/80 to-bark-900/30"
