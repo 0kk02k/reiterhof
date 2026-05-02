@@ -19,8 +19,20 @@ Um maximale Ladegeschwindigkeit und beste Google-Rankings zu erzielen, wird ein 
 2.  **Redirect-Plan:** Erstellung einer 301-Weiterleitungskarte von alten (gebrochenen) URLs auf die neue Struktur, um SEO-Rankingverluste zu vermeiden.
 3.  **Analytics-Setup:** Integration von datenschutzkonformen Analysetools (z.B. Plausible oder Matomo), um das Nutzerverhalten zu verstehen.
 
-## 3. SEO-Fokus (Local SEO)
-Da der Biohof ein regionales Geschäft ist, müssen folgende Elemente technisch perfekt umgesetzt werden:
-*   **Structured Data (JSON-LD):** Auszeichnung als "LocalBusiness", "Farm" und "RidingSchool" für Google Maps und Rich Snippets.
-*   **Performance:** 100/100 Core Web Vitals Score.
-*   **Google Business Profile:** Synchronisierung der Webseite mit dem Google Business Eintrag.
+## 4. Aktuelle Architektur-Entscheidungen
+
+### React 18 vs. React 19
+*   **Status:** Das Projekt nutzt aktuell **Next.js 14.1.0** und **React 18.2.0**.
+*   **Beobachtung:** Neuere Sanity-Pakete werfen Peer-Dependency-Warnungen aus, da sie React 19 bevorzugen.
+*   **Entscheidung:** Verbleib auf React 18.
+*   **Begründung:** 
+    *   Next.js 14 ist primär für React 18 optimiert. Ein Upgrade auf React 19 würde idealerweise auch ein Upgrade auf Next.js 15 erfordern, was tiefgreifende Änderungen an den APIs (z.B. Caching, Request-Handling) nach sich zieht.
+    *   Stabilität hat aktuell Vorrang vor dem "Bleeding Edge" Stack.
+    *   Konflikte werden über `.npmrc` (`legacy-peer-deps=true`) aufgelöst.
+*   **Roadmap:** Ein Upgrade auf Next.js 15 + React 19 sollte erst in einer dedizierten Refactoring-Phase nach dem erfolgreichen Go-Live des Prototyps erfolgen.
+
+### Bild-Performance
+*   **Status:** Bilder im `public/images/` Ordner sind aktuell unkomprimiert (>8MB pro Datei).
+*   **Risiko:** Hohe Ladezeiten (LCP) und potenzielle Build-Time-Timeouts auf Vercel.
+*   **Empfehlung:** Konvertierung zu WebP und Skalierung auf max. 1920px Breite.
+
