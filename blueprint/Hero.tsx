@@ -58,25 +58,6 @@ const Hero: React.FC = () => {
             Entdecken Sie unsere Reitschule, nachhaltige Landwirtschaft und die
             besondere Verbindung zwischen Mensch und Tier in Kloster Lehnin.
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-col sm:flex-row gap-4 pt-4"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 bg-meadow-600 hover:bg-meadow-500 text-white font-bold rounded-xl transition-colors shadow-xl shadow-meadow-600/25"
-            >
-              Reitstunden buchen
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold backdrop-blur-md border border-white/30 rounded-xl transition-colors"
-            >
-              Unser Hof & Team
-            </motion.button>
-          </motion.div>
         </div>
 
         {/* Info Cards */}
