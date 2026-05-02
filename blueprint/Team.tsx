@@ -17,9 +17,9 @@ interface TeamProps {
 }
 
 const defaultMembers: TeamMember[] = [
-  { name: 'Timo Wessels', role: 'Inhaber & Landwirtschaft', bio: 'Leidenschaftlicher Landwirt und Visionär für nachhaltige Konzepte.' },
-  { name: 'Sabine Müller', role: 'Leitung Reitschule', bio: 'Pferdewirtin mit 20 Jahren Erfahrung im Reitunterricht.' },
-  { name: 'Dr. Bernd Schmidt', role: 'Tierarzt & Beratung', bio: 'Spezialist für Pferdegesundheit und artgerechte Haltung.' },
+  { name: 'Timo Wessels', role: 'Inhaber & Landwirtschaft', bio: 'Leidenschaftlicher Landwirt und Visionär für nachhaltige Konzepte.', image: '/images/timowessels.png' },
+  { name: 'Sabine Müller', role: 'Leitung Reitschule', bio: 'Pferdewirtin mit 20 Jahren Erfahrung im Reitunterricht.', image: '/images/sabinemueller.png' },
+  { name: 'Dr. Bernd Schmidt', role: 'Tierarzt & Beratung', bio: 'Spezialist für Pferdegesundheit und artgerechte Haltung.', image: '/images/tierarzt.png' },
 ];
 
 const Team: React.FC<TeamProps> = ({ members = defaultMembers }) => {
