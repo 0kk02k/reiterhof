@@ -88,35 +88,46 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
       <Gallery images={galleryData} />
 
       {/* News */}
-      <section id="news" className="py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-14">
+      <section id="news" className="py-28 bg-paper relative">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-14 gap-4">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display text-bark-900">Neues vom Hof</h2>
-              <p className="text-bark-400 mt-2">Aktuelle Einblicke in unser Hof-Tagebuch</p>
+              <h2 className="text-4xl md:text-5xl font-display text-bark-900">Neues vom Hof</h2>
+              <p className="text-bark-500 mt-2 text-lg italic font-caption">Aktuelle Einträge aus unserem Hof-Tagebuch</p>
             </div>
-            <a href="#" className="text-meadow-700 font-bold hover:underline hidden md:block text-sm">Alle Beiträge lesen →</a>
+            <a href="#" className="text-bark-800 font-bold border-b border-bark-400 hover:border-bark-800 pb-1 transition-colors text-sm uppercase tracking-widest">Alle Beiträge lesen</a>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {news.map((item, i) => (
               <motion.article
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -4, transition: { duration: 0.25 } }}
-                className="group cursor-pointer"
+                className="group cursor-pointer flex flex-col"
               >
-                <div className="aspect-[3/2] bg-sand-200 rounded-2xl mb-5 overflow-hidden relative">
+                <div 
+                  className="aspect-[3/2] bg-sand-200 mb-6 overflow-hidden relative shadow-rustic transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl"
+                  style={{
+                    WebkitMaskImage: `url(/masks/edge-${(i % 3) + 1}.svg)`,
+                    WebkitMaskSize: '100% 100%',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskImage: `url(/masks/edge-${(i % 3) + 1}.svg)`,
+                    maskSize: '100% 100%',
+                    maskRepeat: 'no-repeat',
+                  }}
+                >
                   <Image 
                     src={item.img} 
                     alt={item.title} 
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                    className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" 
                   />
                 </div>
-                <span className="text-xs font-bold text-meadow-700 uppercase tracking-widest">{item.date}</span>
-                <h3 className="text-xl font-display font-bold text-bark-900 mt-2 group-hover:text-meadow-700 transition-colors">{item.title}</h3>
-                <p className="text-bark-500 mt-2 line-clamp-2">{item.excerpt}</p>
+                <div className="px-2">
+                  <span className="text-xs font-bold text-meadow-700 uppercase tracking-widest">{item.date}</span>
+                  <h3 className="text-2xl font-display font-bold text-bark-900 mt-3 group-hover:text-bark-600 transition-colors leading-snug">{item.title}</h3>
+                  <p className="text-bark-600 mt-3 line-clamp-3 leading-relaxed">{item.excerpt}</p>
+                </div>
               </motion.article>
             ))}
           </div>
@@ -131,52 +142,59 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
       </section>
 
       {/* Contact */}
-      <section id="kontakt" className="py-28 bg-sand-100/50">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section id="kontakt" className="py-28 bg-paper relative border-t border-sand-200/50">
+        {/* Subtle Linen Texture Overlay */}
+        <div 
+          className="absolute inset-0 z-0 opacity-10 mix-blend-multiply pointer-events-none"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-4xl md:text-5xl font-display text-bark-900 mb-6">Kontaktieren Sie uns</h2>
-            <p className="text-lg text-bark-500 mb-10 leading-relaxed">
+            <p className="text-lg text-bark-600 mb-10 font-caption italic leading-relaxed">
               Haben Sie Fragen zu unseren Reitstunden, den Pensionsplätzen oder
               unseren Bio-Produkten? Wir freuen uns auf Ihre Nachricht!
             </p>
             <div className="space-y-5">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-500 text-lg">📍</div>
-                <span className="text-bark-700">Zum Mühlenberg, 14797 Kloster Lehnin</span>
+                <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-600 text-xl border-2 border-sand-100 shadow-sm">📍</div>
+                <span className="text-bark-800 font-medium">Zum Mühlenberg, 14797 Kloster Lehnin</span>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-500 text-lg">📞</div>
-                <span className="text-bark-700">+49 (0) 3382 700 321</span>
+                <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-600 text-xl border-2 border-sand-100 shadow-sm">📞</div>
+                <span className="text-bark-800 font-medium">+49 (0) 3382 700 321</span>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-500 text-lg">✉️</div>
-                <span className="text-bark-700">info@biohof-muehlenberg.de</span>
+                <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-600 text-xl border-2 border-sand-100 shadow-sm">✉️</div>
+                <span className="text-bark-800 font-medium">info@biohof-muehlenberg.de</span>
               </div>
             </div>
 
             {/* Opening Hours */}
-            <div className="mt-10 p-6 bg-white/80 rounded-2xl border border-sand-200">
-              <h3 className="font-display font-bold text-bark-900 text-lg mb-4">Öffnungszeiten</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between"><span className="text-bark-500">Montag – Freitag</span><span className="font-bold text-bark-800">8:00 – 18:00 Uhr</span></div>
-                <div className="flex justify-between"><span className="text-bark-500">Samstag</span><span className="font-bold text-bark-800">9:00 – 16:00 Uhr</span></div>
-                <div className="flex justify-between"><span className="text-bark-500">Sonntag</span><span className="font-bold text-bark-800">10:00 – 14:00 Uhr</span></div>
+            <div className="mt-12 p-8 bg-sand-50/80 rounded-xl border border-sand-200 shadow-sm">
+              <h3 className="font-display font-bold text-bark-900 text-xl mb-5 border-b border-sand-200 pb-2">Öffnungszeiten</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between"><span className="text-bark-600">Montag – Freitag</span><span className="font-bold text-bark-900">8:00 – 18:00 Uhr</span></div>
+                <div className="flex justify-between"><span className="text-bark-600">Samstag</span><span className="font-bold text-bark-900">9:00 – 16:00 Uhr</span></div>
+                <div className="flex justify-between"><span className="text-bark-600">Sonntag</span><span className="font-bold text-bark-900">10:00 – 14:00 Uhr</span></div>
               </div>
-              <p className="text-xs text-bark-400 mt-3">Reitstunden nach Vereinbarung auch außerhalb der Öffnungszeiten.</p>
+              <p className="text-xs text-bark-400 mt-5 italic">Reitstunden nach Vereinbarung auch außerhalb der Öffnungszeiten möglich.</p>
             </div>
           </motion.div>
           <ContactForm />
         </div>
 
         {/* Google Maps */}
-        <div className="max-w-7xl mx-auto px-6 mt-16">
+        <div className="max-w-7xl mx-auto px-6 mt-20 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
             transition={{ duration: 0.5 }}
-            className="rounded-2xl overflow-hidden shadow-lg border border-sand-200 h-80"
+            className="rounded-2xl overflow-hidden shadow-rustic border border-sand-200 h-80"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.8!2d12.75!3d52.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDIyJzQ4LjAiTiAxMsKwNDUnMDAuMCJF!5e0!3m2!1sde!2sde!4v1"

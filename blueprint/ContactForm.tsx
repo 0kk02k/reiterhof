@@ -78,7 +78,7 @@ const ContactForm: React.FC = () => {
       <form 
         ref={formRef}
         onSubmit={handleSubmit} 
-        className="space-y-6 bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-sand-200 shadow-sm relative z-10"
+        className="space-y-6 bg-sand-50 p-8 md:p-10 rounded-xl border border-sand-200 shadow-rustic relative z-10"
       >
         {/* Honeypot field - hidden from users */}
         <input type="text" name="_honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
@@ -88,7 +88,7 @@ const ContactForm: React.FC = () => {
             <label htmlFor="name" className="text-sm font-bold text-bark-800 uppercase tracking-tight">Name</label>
             <input 
               type="text" id="name" name="name" required 
-              className="w-full px-4 py-3.5 rounded-xl border border-sand-200 bg-sand-50/50 focus:border-meadow-500 focus:ring-4 focus:ring-meadow-500/10 outline-none transition-all placeholder:text-bark-300" 
+              className="w-full px-4 py-3.5 rounded-lg border border-sand-200 bg-white focus:border-bark-500 focus:ring-4 focus:ring-bark-500/10 outline-none transition-all placeholder:text-bark-300 font-body" 
               placeholder="Vor- und Nachname" 
             />
           </div>
@@ -96,7 +96,7 @@ const ContactForm: React.FC = () => {
             <label htmlFor="email" className="text-sm font-bold text-bark-800 uppercase tracking-tight">E-Mail Adresse</label>
             <input 
               type="email" id="email" name="email" required 
-              className="w-full px-4 py-3.5 rounded-xl border border-sand-200 bg-sand-50/50 focus:border-meadow-500 focus:ring-4 focus:ring-meadow-500/10 outline-none transition-all placeholder:text-bark-300" 
+              className="w-full px-4 py-3.5 rounded-lg border border-sand-200 bg-white focus:border-bark-500 focus:ring-4 focus:ring-bark-500/10 outline-none transition-all placeholder:text-bark-300 font-body" 
               placeholder="beispiel@mail.de" 
             />
           </div>
@@ -106,7 +106,7 @@ const ContactForm: React.FC = () => {
           <label htmlFor="subject" className="text-sm font-bold text-bark-800 uppercase tracking-tight">Betreff</label>
           <select 
             id="subject" name="subject" 
-            className="w-full px-4 py-3.5 rounded-xl border border-sand-200 bg-sand-50/50 focus:border-meadow-500 focus:ring-4 focus:ring-meadow-500/10 outline-none transition-all appearance-none cursor-pointer"
+            className="w-full px-4 py-3.5 rounded-lg border border-sand-200 bg-white focus:border-bark-500 focus:ring-4 focus:ring-bark-500/10 outline-none transition-all cursor-pointer font-body"
           >
             <option>Reitstunden & Kurse</option>
             <option>Pensionspferde</option>
@@ -120,7 +120,7 @@ const ContactForm: React.FC = () => {
           <label htmlFor="message" className="text-sm font-bold text-bark-800 uppercase tracking-tight">Ihre Nachricht</label>
           <textarea 
             id="message" name="message" rows={5} required 
-            className="w-full px-4 py-3.5 rounded-xl border border-sand-200 bg-sand-50/50 focus:border-meadow-500 focus:ring-4 focus:ring-meadow-500/10 outline-none transition-all placeholder:text-bark-300 resize-none" 
+            className="w-full px-4 py-3.5 rounded-lg border border-sand-200 bg-white focus:border-bark-500 focus:ring-4 focus:ring-bark-500/10 outline-none transition-all placeholder:text-bark-300 resize-none font-body" 
             placeholder="Wie können wir Ihnen helfen?" 
           />
         </div>
@@ -131,7 +131,7 @@ const ContactForm: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="p-4 bg-red-50 border border-red-100 text-red-700 text-sm rounded-xl"
+              className="p-4 bg-red-50 border border-red-100 text-red-700 text-sm rounded-lg font-body"
             >
               {errorMessage}
             </motion.div>
@@ -143,7 +143,7 @@ const ContactForm: React.FC = () => {
           disabled={status === 'sending'}
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full bg-bark-800 hover:bg-bark-900 text-sand-100 font-bold py-4.5 rounded-xl transition-all shadow-xl shadow-bark-900/10 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full bg-bark-800 hover:bg-bark-900 text-sand-100 font-bold py-4 rounded-lg transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 uppercase tracking-wide text-sm"
         >
           {status === 'sending' ? (
             <>

@@ -35,10 +35,18 @@ const config: Config = {
           800: '#064e3b',
           900: '#022c22',
         },
+        paper: {
+          DEFAULT: '#F9F8F5',
+          dark: '#F2EFE9',
+        }
       },
       fontFamily: {
         display: ['Playfair Display', 'Georgia', 'serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
+        caption: ['Playfair Display', 'Georgia', 'serif'],
+      },
+      boxShadow: {
+        'rustic': '0px 10px 30px rgba(90, 75, 60, 0.1)',
       },
       borderRadius: {
         '2xl': '1rem',
