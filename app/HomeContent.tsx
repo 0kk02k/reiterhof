@@ -85,7 +85,7 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
         </motion.p>
       </section>
 
-      <Gallery images={galleryData} />
+      <Gallery images={galleryData && galleryData.length > 0 ? galleryData : undefined} />
 
       {/* News */}
       <section id="news" className="py-28 bg-paper relative">
@@ -134,11 +134,11 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
         </div>
       </section>
 
-      <Team members={teamData} />
+      <Team members={teamData && teamData.length > 0 ? teamData : undefined} />
 
       {/* Pricing */}
       <section id="preise" className="py-28 max-w-7xl mx-auto px-6">
-        <PriceTable pricingData={pricingData} />
+        <PriceTable pricingData={pricingData && pricingData.length > 0 ? pricingData : undefined} />
       </section>
 
       {/* Contact */}
