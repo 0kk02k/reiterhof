@@ -1,15 +1,28 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const members = [
+interface TeamMember {
+  _id?: string;
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+}
+
+interface TeamProps {
+  members?: TeamMember[];
+}
+
+const defaultMembers = [
   { name: 'Timo Wessels', role: 'Inhaber & Landwirtschaft', bio: 'Leidenschaftlicher Landwirt und Visionär für nachhaltige Konzepte.' },
   { name: 'Sabine Müller', role: 'Leitung Reitschule', bio: 'Pferdewirtin mit 20 Jahren Erfahrung im Reitunterricht.' },
   { name: 'Dr. Bernd Schmidt', role: 'Tierarzt & Beratung', bio: 'Spezialist für Pferdegesundheit und artgerechte Haltung.' },
 ];
 
-const Team: React.FC = () => {
+const Team: React.FC<TeamProps> = ({ members = defaultMembers }) => {
   return (
     <section id="team" className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -38,8 +51,17 @@ const Team: React.FC = () => {
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 text-center border border-sand-200 shadow-sm hover:shadow-lg transition-shadow"
             >
-              <div className="w-28 h-28 mx-auto mb-6 rounded-full bg-sand-200 border-4 border-sand-100 flex items-center justify-center">
-                <span className="text-4xl text-bark-400">👤</span>
+              <div className="w-28 h-28 mx-auto mb-6 rounded-full bg-sand-200 border-4 border-sand-100 flex items-center justify-center overflow-hidden relative">
+                {member.image ? (
+                  <Image 
+                    src={member.image} 
+                    alt={member.name} 
+                    fill 
+                    className="object-cover"
+                  />
+                ) : (
+                  <span className="text-4xl text-bark-400">👤</span>
+                )}
               </div>
               <h3 className="text-xl font-display font-bold text-bark-900 mb-1">{member.name}</h3>
               <p className="text-meadow-700 font-medium text-sm uppercase tracking-widest mb-4">{member.role}</p>

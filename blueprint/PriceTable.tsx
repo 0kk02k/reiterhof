@@ -11,11 +11,16 @@ interface PriceItem {
 }
 
 interface PriceCategory {
+  _id?: string;
   title: string;
   items: PriceItem[];
 }
 
-const pricingData: PriceCategory[] = [
+interface PriceTableProps {
+  pricingData?: PriceCategory[];
+}
+
+const defaultPricingData: PriceCategory[] = [
   {
     title: 'Reitschule',
     items: [
@@ -33,7 +38,7 @@ const pricingData: PriceCategory[] = [
   },
 ];
 
-const PriceTable: React.FC = () => {
+const PriceTable: React.FC<PriceTableProps> = ({ pricingData = defaultPricingData }) => {
   return (
     <div className="bg-sand-100/80 backdrop-blur-sm py-16 px-6 rounded-3xl border border-sand-200">
       <div className="max-w-4xl mx-auto">
@@ -61,7 +66,7 @@ const PriceTable: React.FC = () => {
                 <h3 className="text-lg font-bold text-sand-100 tracking-wide">{category.title}</h3>
               </div>
               <div className="divide-y divide-sand-100">
-                {category.items.map((item) => (
+                {category.items?.map((item) => (
                   <div key={item.name} className="p-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-sand-50/50 transition-colors">
                     <div className="mb-3 md:mb-0">
                       <h4 className="font-bold text-bark-900 text-lg">{item.name}</h4>
