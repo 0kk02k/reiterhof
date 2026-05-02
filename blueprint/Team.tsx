@@ -16,7 +16,7 @@ interface TeamProps {
   members?: TeamMember[];
 }
 
-const defaultMembers = [
+const defaultMembers: TeamMember[] = [
   { name: 'Timo Wessels', role: 'Inhaber & Landwirtschaft', bio: 'Leidenschaftlicher Landwirt und Visionär für nachhaltige Konzepte.' },
   { name: 'Sabine Müller', role: 'Leitung Reitschule', bio: 'Pferdewirtin mit 20 Jahren Erfahrung im Reitunterricht.' },
   { name: 'Dr. Bernd Schmidt', role: 'Tierarzt & Beratung', bio: 'Spezialist für Pferdegesundheit und artgerechte Haltung.' },
