@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Navigation from '../blueprint/Navigation';
 import Hero from '../blueprint/Hero';
@@ -98,8 +99,13 @@ export default function LandingPage() {
                 whileHover={{ y: -4, transition: { duration: 0.25 } }}
                 className="group cursor-pointer"
               >
-                <div className="aspect-[3/2] bg-sand-200 rounded-2xl mb-5 overflow-hidden">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="aspect-[3/2] bg-sand-200 rounded-2xl mb-5 overflow-hidden relative">
+                  <Image 
+                    src={item.img} 
+                    alt={item.title} 
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                  />
                 </div>
                 <span className="text-xs font-bold text-meadow-700 uppercase tracking-widest">{item.date}</span>
                 <h3 className="text-xl font-display font-bold text-bark-900 mt-2 group-hover:text-meadow-700 transition-colors">{item.title}</h3>

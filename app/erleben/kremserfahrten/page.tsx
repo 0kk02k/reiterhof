@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Navigation from '../../../blueprint/Navigation';
 
@@ -36,8 +37,8 @@ export default function KremserfahrtenPage() {
             <div className="p-5 bg-sand-100 rounded-xl border border-sand-200"><span className="block text-2xl font-display font-bold text-bark-800">bis 12</span><span className="text-sm text-bark-400 uppercase tracking-tight">Personen</span></div>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5, delay: 0.15 }} className="aspect-[4/3] bg-sand-200 rounded-3xl overflow-hidden shadow-xl">
-          <img src="/images/kremserfahrten-landschaft.jpg" alt="Kremserfahrt Landschaft" className="w-full h-full object-cover" />
+        <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5, delay: 0.15 }} className="aspect-[4/3] bg-sand-200 rounded-3xl overflow-hidden shadow-xl relative">
+          <Image src="/images/kremserfahrten-landschaft.jpg" alt="Kremserfahrt Landschaft" fill className="object-cover" />
         </motion.div>
       </section>
       <section className="py-28 bg-sand-100/60 px-6">

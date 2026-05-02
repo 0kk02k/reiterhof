@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Navigation from '../../blueprint/Navigation';
 
@@ -61,9 +62,14 @@ export default function BiohofPage() {
           <motion.div
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}
             transition={{ duration: 0.5 }}
-            className="order-2 lg:order-1 aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-sand-200"
+            className="order-2 lg:order-1 aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-sand-200 relative"
           >
-            <img src="/images/biohof-milchproduktion.jpg" alt="Milchproduktion am Biohof" className="w-full h-full object-cover" />
+            <Image 
+              src="/images/biohof-milchproduktion.jpg" 
+              alt="Milchproduktion am Biohof" 
+              fill
+              className="object-cover" 
+            />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}

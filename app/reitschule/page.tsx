@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Navigation from '../../blueprint/Navigation';
 import FAQ from '../../blueprint/FAQ';
@@ -67,9 +68,14 @@ export default function ReitschulePage() {
         <motion.div
           initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="aspect-[3/4] bg-sand-200 rounded-3xl overflow-hidden shadow-xl max-h-[520px]"
+          className="aspect-[3/4] bg-sand-200 rounded-3xl overflow-hidden shadow-xl max-h-[520px] relative"
         >
-          <img src="/images/reitschule-unterricht.jpg" alt="Reitunterricht Impression" className="w-full h-full object-cover" />
+          <Image 
+            src="/images/reitschule-unterricht.jpg" 
+            alt="Reitunterricht Impression" 
+            fill
+            className="object-cover" 
+          />
         </motion.div>
       </section>
 
