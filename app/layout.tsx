@@ -2,11 +2,21 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Biohof Mühlenberg | Reitschule & Ökologische Landwirtschaft',
+  metadataBase: new URL('https://biohof-muehlenberg.de'),
+  title: {
+    default: 'Biohof Mühlenberg | Reitschule & Ökologische Landwirtschaft',
+    template: '%s | Biohof Mühlenberg',
+  },
   description: 'Entdecken Sie den Biohof Mühlenberg in Kloster Lehnin. Reitschule, Reittherapie, Pensionspferde und ökologische Landwirtschaft mit Herz.',
+  keywords: ['Reitschule', 'Biohof', 'Kloster Lehnin', 'Reittherapie', 'Pensionspferde', 'Brandenburg', 'Ökologische Landwirtschaft'],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Biohof Mühlenberg | Reitschule & Ökologische Landwirtschaft',
     description: 'Reitschule, Reittherapie, Pensionspferde und ökologische Landwirtschaft in Kloster Lehnin.',
+    url: 'https://biohof-muehlenberg.de',
+    siteName: 'Biohof Mühlenberg',
     locale: 'de_DE',
     type: 'website',
     images: [
@@ -14,9 +24,26 @@ export const metadata: Metadata = {
         url: '/images/opengraph-default.jpg',
         width: 1200,
         height: 630,
-        alt: 'Biohof Mühlenberg',
+        alt: 'Biohof Mühlenberg Impressionen',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Biohof Mühlenberg | Reitschule & Ökologische Landwirtschaft',
+    description: 'Reitschule, Reittherapie, Pensionspferde und ökologische Landwirtschaft in Kloster Lehnin.',
+    images: ['/images/opengraph-default.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
