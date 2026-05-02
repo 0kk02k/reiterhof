@@ -95,7 +95,7 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
               <h2 className="text-4xl md:text-5xl font-display text-bark-900">Neues vom Hof</h2>
               <p className="text-bark-500 mt-2 text-lg italic font-caption">Aktuelle Einträge aus unserem Hof-Tagebuch</p>
             </div>
-            <a href="#" className="text-bark-800 font-bold border-b border-bark-400 hover:border-bark-800 pb-1 transition-colors text-sm uppercase tracking-widest">Alle Beiträge lesen</a>
+            <a href="#news" className="text-bark-800 font-bold border-b border-bark-400 hover:border-bark-800 pb-1 transition-colors text-sm uppercase tracking-widest">Alle Beiträge lesen</a>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {news.map((item, i) => (

@@ -117,12 +117,13 @@ export default function ReitschulePage() {
                   </div>
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{course.focus}</p>
-                <motion.button
+                <motion.a
+                  href="/#kontakt"
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md"
+                  className="block text-center w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md"
                 >
-                  Kursdetails
-                </motion.button>
+                  Kursdetails anfragen
+                </motion.a>
               </motion.div>
             ))}
           </div>
@@ -143,12 +144,13 @@ export default function ReitschulePage() {
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Bereit für die erste Stunde?</h2>
           <p className="text-xl text-sand-200/60 mb-10">Sichere dir jetzt deinen Platz in unserem Online-Buchungssystem.</p>
-          <motion.button
+          <motion.a
+            href="/#kontakt"
             whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
-            className="px-12 py-5 bg-sand-100 text-bark-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors"
+            className="inline-block px-12 py-5 bg-sand-100 text-bark-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors"
           >
-            Jetzt Reitstunde buchen
-          </motion.button>
+            Jetzt Reitstunde anfragen
+          </motion.a>
         </div>
       </section>
     </main>

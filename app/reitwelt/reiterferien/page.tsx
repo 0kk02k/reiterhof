@@ -76,7 +76,7 @@ export default function ReiterferienPage() {
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{p.desc}</p>
                 <span className="text-3xl font-display font-bold text-bark-800 mb-6">{p.preis}</span>
-                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Platz sichern</motion.button>
+                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Platz sichern</motion.a>
               </motion.div>
             ))}
           </div>
@@ -87,7 +87,7 @@ export default function ReiterferienPage() {
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Plätze sind begrenzt</h2>
           <p className="text-xl text-sand-200/60 mb-10">Sichern Sie sich rechtzeitig einen Platz für die nächsten Ferien.</p>
-          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="px-12 py-5 bg-sand-100 text-bark-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Jetzt anmelden</motion.button>
+          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-bark-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Jetzt anmelden</motion.a>
         </div>
       </section>
     </main>

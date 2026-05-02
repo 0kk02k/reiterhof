@@ -77,7 +77,7 @@ export default function ReittherapiePage() {
                   </div>
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{a.desc}</p>
-                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.button>
+                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.a>
               </motion.div>
             ))}
           </div>
