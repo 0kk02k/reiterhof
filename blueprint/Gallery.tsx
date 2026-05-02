@@ -68,7 +68,7 @@ const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-x-12 items-center">
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-16 pt-4 px-6 md:px-[20vw] hide-scrollbar -mx-6">
           {images.map((img, i) => (
             <motion.div
               key={img.url + i}
@@ -76,37 +76,50 @@ const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`flex flex-col group ${colSpans[i % colSpans.length]} ${margins[i % margins.length]} ${rotations[i % rotations.length]}`}
+              className={`flex-none w-[85vw] md:w-[450px] snap-center group cursor-grab active:cursor-grabbing ${rotations[i % rotations.length]}`}
             >
-              <div 
-                className="relative overflow-hidden shadow-rustic transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl"
-                style={{
-                  WebkitMaskImage: masks[i % masks.length],
-                  WebkitMaskSize: '100% 100%',
-                  WebkitMaskRepeat: 'no-repeat',
-                  maskImage: masks[i % masks.length],
-                  maskSize: '100% 100%',
-                  maskRepeat: 'no-repeat',
-                  aspectRatio: `${img.width || 4} / ${img.height || 3}`,
-                }}
-              >
-                <Image 
-                  src={img.url} 
-                  alt={img.alt} 
-                  fill
-                  className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105" 
-                />
-              </div>
-              
-              <div className="mt-4 px-2 transform rotate-1">
-                <p className="font-caption italic text-bark-600 text-lg md:text-xl">
-                  {img.caption}
-                </p>
+              <div className="bg-sand-50 p-4 md:p-5 pb-10 md:pb-14 shadow-rustic rounded-sm transition-all duration-500 group-hover:rotate-0 group-hover:-translate-y-4 group-hover:shadow-2xl border border-sand-200/50">
+                <div 
+                  className="relative overflow-hidden bg-sand-200 shadow-inner"
+                  style={{
+                    WebkitMaskImage: masks[i % masks.length],
+                    WebkitMaskSize: '100% 100%',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskImage: masks[i % masks.length],
+                    maskSize: '100% 100%',
+                    maskRepeat: 'no-repeat',
+                    aspectRatio: `${img.width || 4} / ${img.height || 3}`,
+                  }}
+                >
+                  <Image 
+                    src={img.url} 
+                    alt={img.alt} 
+                    fill
+                    className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" 
+                  />
+                </div>
+                
+                <div className="mt-6 px-2 text-center transform -rotate-1">
+                  <p className="font-caption italic text-bark-800 text-xl leading-snug">
+                    {img.caption}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* CSS for hide-scrollbar */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}} />
     </section>
   );
 };
