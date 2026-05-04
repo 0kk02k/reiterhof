@@ -20,20 +20,20 @@ export default function ReitschulePage() {
       <Navigation />
 
       {/* Subpage Hero */}
-      <header className="pt-32 pb-24 bg-meadow-900 text-sand-100 px-6 relative overflow-hidden">
+      <header className="pt-32 pb-24 bg-clay-900 text-sand-100 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-meadow-400 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-clay-400 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto relative"
         >
-          <nav className="text-meadow-300/60 text-sm mb-6 uppercase tracking-widest font-bold">
+          <nav className="text-clay-300/60 text-sm mb-6 uppercase tracking-widest font-bold">
             <a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Reitschule
           </nav>
           <h1 className="text-5xl md:text-7xl font-display mb-6">Reitschule Mühlenberg</h1>
-          <p className="text-xl text-meadow-100/70 max-w-2xl leading-relaxed">
+          <p className="text-xl text-clay-100/70 max-w-2xl leading-relaxed">
             Egal ob du zum ersten Mal im Sattel sitzt oder deine Dressur-Kür verfeinern möchtest –
             wir begleiten dich mit Fachkompetenz und Leidenschaft für das Pferd.
           </p>
@@ -160,17 +160,17 @@ export default function ReitschulePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 bg-meadow-800 text-sand-100 text-center px-6 relative overflow-hidden">
+      <section className="py-32 bg-clay-800 text-sand-100 text-center px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-meadow-400 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-clay-400 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
         </div>
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Bereit für die erste Stunde?</h2>
-          <p className="text-xl text-meadow-100/60 mb-10">Sichere dir jetzt deinen Platz in unserem Online-Buchungssystem.</p>
+          <p className="text-xl text-clay-100/60 mb-10">Sichere dir jetzt deinen Platz in unserem Online-Buchungssystem.</p>
           <motion.a
             href="/#kontakt"
             whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
-            className="inline-block px-12 py-5 bg-sand-100 text-meadow-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors"
+            className="inline-block px-12 py-5 bg-sand-100 text-clay-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors"
           >
             Jetzt Reitstunde anfragen
           </motion.a>

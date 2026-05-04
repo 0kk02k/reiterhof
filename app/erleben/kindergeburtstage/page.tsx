@@ -56,12 +56,12 @@ export default function KindergeburtstagePage() {
           </div>
         </div>
       </section>
-      <section className="py-32 bg-meadow-900 text-sand-100 text-center px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute top-0 right-0 w-80 h-80 bg-meadow-400 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" /></div>
+      <section className="py-32 bg-rose-900 text-sand-100 text-center px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute top-0 right-0 w-80 h-80 bg-rose-400 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" /></div>
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Termin anfragen</h2>
-          <p className="text-xl text-meadow-100/60 mb-10">Schreiben Sie uns Ihr Wunschdatum – wir melden uns schnellstmöglich zurück.</p>
-          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-meadow-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Termin anfragen</motion.a>
+          <p className="text-xl text-rose-100/60 mb-10">Schreiben Sie uns Ihr Wunschdatum – wir melden uns schnellstmöglich zurück.</p>
+          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-rose-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Termin anfragen</motion.a>
         </div>
       </section>
     </main>
