@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeContent from './HomeContent';
-import { getNews, getTeam, getPricing, getGallery, getEvents } from '../sanity/queries';
+import { getNews, getTeam, getPricing, getGallery, getEvents } from '../storyblok/queries';
 
 export const revalidate = 60; // Revalidate every minute
 
