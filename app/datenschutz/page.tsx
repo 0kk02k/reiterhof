@@ -104,9 +104,6 @@ export default function DatenschutzPage() {
           ))}
         </div>
       </section>
-      <footer className="bg-sand-100 py-12 px-6 text-center">
-        <a href="/" className="inline-flex items-center gap-2 text-bark-600 font-bold hover:text-meadow-700 transition-colors">← Zurück zur Startseite</a>
-      </footer>
     </main>
   );
 }
