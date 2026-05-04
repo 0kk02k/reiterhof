@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '../blueprint/Navigation';
 import Hero from '../blueprint/Hero';
 import PriceTable from '../blueprint/PriceTable';
@@ -20,6 +20,17 @@ interface HomeContentProps {
 }
 
 export default function HomeContent({ newsData, teamData, pricingData, galleryData }: HomeContentProps) {
+  const [selectedNews, setSelectedNews] = useState<any | null>(null);
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (selectedNews) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [selectedNews]);
+
   const news = newsData && newsData.length > 0 ? newsData : [
     { title: 'Frühlingsfest am Hof', date: '15. Mai 2026', excerpt: 'Feiern Sie mit uns den Einzug des Frühlings mit Ponyreiten und Bio-Spezialitäten.', img: '/images/news-fruehlingsfest.jpg' },
     { title: 'Neue Reitkurse verfügbar', date: '02. Mai 2026', excerpt: 'Ab sofort können neue Anfängerkurse für Kinder und Erwachsene gebucht werden.', img: '/images/news-reitkurse.jpg' },
@@ -104,6 +115,7 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group cursor-pointer flex flex-col"
+                onClick={() => setSelectedNews(item)}
               >
                 <div 
                   className="aspect-[3/2] bg-sand-200 mb-6 overflow-hidden relative shadow-rustic transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl"
@@ -261,6 +273,73 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
           Jetzt Buchen →
         </a>
       </div>
+
+      {/* News Modal */}
+      <AnimatePresence>
+        {selectedNews && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedNews(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bark-900/80 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-paper w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative"
+            >
+              {/* Subtle Linen Texture inside Modal */}
+              <div 
+                className="absolute inset-0 z-0 opacity-[0.03] mix-blend-multiply pointer-events-none"
+                style={{
+                  backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+                }}
+              />
+              
+              <div className="relative h-64 md:h-80 w-full overflow-hidden">
+                <Image 
+                  src={selectedNews.img} 
+                  alt={selectedNews.title} 
+                  fill
+                  className="object-cover" 
+                />
+                <button 
+                  onClick={() => setSelectedNews(null)}
+                  className="absolute top-4 right-4 bg-bark-900/50 hover:bg-bark-900 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <div className="p-8 md:p-12 relative z-10">
+                <span className="text-sm font-bold text-meadow-700 uppercase tracking-widest">{selectedNews.date}</span>
+                <h3 className="text-3xl md:text-4xl font-display font-bold text-bark-900 mt-4 mb-6 leading-tight">
+                  {selectedNews.title}
+                </h3>
+                
+                <div className="prose prose-lg prose-stone max-w-none text-bark-600">
+                  {/* If we have full body content from CMS, render it here. For now, use excerpt as placeholder if body is missing */}
+                  <p className="whitespace-pre-wrap leading-relaxed">
+                    {selectedNews.body || selectedNews.excerpt}
+                  </p>
+                </div>
+
+                <div className="mt-12 pt-8 border-t border-sand-200 text-center">
+                   <button 
+                    onClick={() => setSelectedNews(null)}
+                    className="inline-block px-8 py-3 bg-bark-800 text-sand-100 font-bold rounded hover:bg-bark-900 transition-colors text-sm uppercase tracking-widest"
+                  >
+                    Schließen
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
