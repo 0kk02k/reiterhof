@@ -61,3 +61,11 @@ export async function getSiteSettings() {
     null
   )
 }
+
+export async function getEvents() {
+  return safeFetch(
+    groq`*[_type == "event" && date >= now()] | order(date asc) {
+      _id, title, date, description, link
+    }`
+  )
+}

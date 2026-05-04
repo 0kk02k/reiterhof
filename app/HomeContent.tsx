@@ -17,9 +17,10 @@ interface HomeContentProps {
   teamData?: any[];
   pricingData?: any[];
   galleryData?: any[];
+  eventData?: any[];
 }
 
-export default function HomeContent({ newsData, teamData, pricingData, galleryData }: HomeContentProps) {
+export default function HomeContent({ newsData, teamData, pricingData, galleryData, eventData }: HomeContentProps) {
   const [selectedNews, setSelectedNews] = useState<any | null>(null);
 
   // Prevent background scrolling when modal is open
@@ -36,6 +37,17 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
     { title: 'Neue Reitkurse verfügbar', date: '02. Mai 2026', excerpt: 'Ab sofort können neue Anfängerkurse für Kinder und Erwachsene gebucht werden.', img: '/images/news-reitkurse.jpg' },
     { title: 'Nachhaltige Ernteerfolge', date: '28. April 2026', excerpt: 'Dank neuer Bewässerungstechnik blicken wir auf eine gesunde erste Erntephase.', img: '/images/news-ernte.jpg' },
   ];
+
+  const events = eventData && eventData.length > 0 ? eventData : [
+    { title: 'Hoffest zum Erntedank', date: '2026-10-04', description: 'Gemeinsames Kürbisschnitzen, Ponyreiten und regionale Speisen aus unserem eigenen Hofladen.', link: '/#kontakt' },
+    { title: 'Weihnachtsreiten', date: '2026-12-13', description: 'Die Reitschüler präsentieren kleine Quadrillen. Besuch vom Weihnachtsmann inklusive!', link: '/reitschule' },
+  ];
+
+  const formatEventDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('de-DE', options).toUpperCase();
+  };
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -140,6 +152,84 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
           </div>
         </div>
       </section>
+
+      {/* Event Timeline — Hof-Agenda */}
+      {events && events.length > 0 && (
+        <section id="events" className="py-28 bg-sand-50 px-6 border-t border-sand-200/50 relative">
+          <div
+            className="absolute inset-0 z-0 opacity-[0.04] mix-blend-multiply pointer-events-none"
+            style={{
+              backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+            }}
+          />
+          <div className="max-w-3xl mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+                transition={{ duration: 0.5 }}
+                className="text-4xl md:text-5xl font-display text-bark-900 mb-4"
+              >
+                Kommende Termine
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-lg text-bark-500 italic font-caption"
+              >
+                Unsere Hof-Agenda — Veranstaltungen, Feste und besondere Anlässe
+              </motion.p>
+            </div>
+
+            {/* Vertical Timeline */}
+            <div className="relative">
+              {/* The brown vertical line */}
+              <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-bark-200" />
+
+              <div className="space-y-12">
+                {events.map((evt: any, i: number) => {
+                  const linkHref = evt.link || '/#kontakt';
+                  return (
+                    <motion.div
+                      key={evt.title || i}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={vp}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      className="relative pl-16 md:pl-20"
+                    >
+                      {/* Pin / Dot on the timeline */}
+                      <div className="absolute left-4 md:left-6 top-3 w-4 h-4 rounded-full bg-meadow-500 border-4 border-sand-50 shadow-md z-10" />
+
+                      {/* Note Card */}
+                      <a
+                        href={linkHref}
+                        className="block bg-paper p-6 md:p-8 rounded-xl border border-sand-200 shadow-sm hover:shadow-rustic transition-all group"
+                        style={{
+                          clipPath: 'polygon(1% 0, 100% 2%, 99% 100%, 0 98%)',
+                        }}
+                      >
+                        <div className="flex flex-col md:flex-row md:items-start gap-4">
+                          <span className="text-sm font-bold text-meadow-700 uppercase tracking-widest whitespace-nowrap border border-meadow-200 bg-meadow-50 px-3 py-1.5 rounded">
+                            {formatEventDate(evt.date)}
+                          </span>
+                          <div className="flex-1">
+                            <h3 className="text-xl md:text-2xl font-display font-bold text-bark-900 group-hover:text-bark-700 transition-colors leading-snug mb-2">
+                              {evt.title}
+                            </h3>
+                            {evt.description && (
+                              <p className="text-bark-600 leading-relaxed">{evt.description}</p>
+                            )}
+                          </div>
+                        </div>
+                      </a>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <Team members={teamData && teamData.length > 0 ? teamData : undefined} />
 
