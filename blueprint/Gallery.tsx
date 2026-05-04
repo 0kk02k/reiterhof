@@ -42,21 +42,21 @@ const gridClasses = [
 ];
 
 const textPositions = [
-  '-bottom-10 -right-4 md:-right-8',   // 0: right
-  '-bottom-12 -left-4 md:-left-8',     // 1: left
-  '-bottom-8 -right-4 md:-right-8',    // 2: right
-  '-bottom-14 -left-4 md:-left-12',    // 3: left
-  '-bottom-10 -right-4 md:-right-10',  // 4: right
-  '-bottom-12 -left-4 md:-left-8'      // 5: left
+  '-bottom-6 -right-2 md:-right-6',    // 0: right
+  '-bottom-8 -left-2 md:-left-6',      // 1: left
+  '-bottom-4 -right-2 md:-right-6',    // 2: right
+  '-bottom-8 -left-2 md:-left-10',     // 3: left
+  '-bottom-6 -right-2 md:-right-8',    // 4: right
+  '-bottom-8 -left-2 md:-left-6'       // 5: left
 ];
 
 const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   
-  // Sanftes Parallax-Verhalten
-  const yImage = useTransform(scrollYProgress, [0, 1], [-15, 15]);
-  const yText = useTransform(scrollYProgress, [0, 1], [40, -50]);
+  // Reduziertes Parallax-Verhalten, um Ablösung zu vermeiden und Performance zu schonen
+  const yImage = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+  const yText = useTransform(scrollYProgress, [0, 1], [15, -15]);
 
   return (
     <motion.div
@@ -74,7 +74,7 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
 
       {/* Container für das asymmetrische Bild */}
       <motion.div 
-        className="relative w-full z-10"
+        className="relative w-full z-10 will-change-transform"
         style={{ y: yImage }}
       >
         <div
@@ -93,6 +93,8 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
             src={img.url}
             alt={img.alt}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={index < 2}
             className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
           />
         </div>
@@ -100,7 +102,7 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
 
       {/* Überlappende Textbox (15-20%) mit Parallax-Scroll */}
       <motion.div
-        className={`absolute ${textPositions[index % textPositions.length]} w-4/5 md:w-3/4 bg-paper p-6 md:p-8 shadow-2xl z-20 border border-sand-200/50`}
+        className={`absolute ${textPositions[index % textPositions.length]} w-4/5 md:w-3/4 bg-paper p-5 md:p-6 shadow-2xl z-20 border border-sand-200/50 will-change-transform`}
         style={{ y: yText }}
       >
         <p className="font-caption italic text-bark-800 text-lg md:text-xl leading-relaxed">
