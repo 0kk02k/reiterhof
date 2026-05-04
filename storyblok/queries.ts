@@ -75,6 +75,18 @@ async function safeFetch<T>(fetcher: () => Promise<T[]>): Promise<T[]> {
   }
 }
 
+async function safeFetchPaginated<T>(fetcher: () => Promise<{ items: T[]; total: number }>): Promise<{ items: T[]; total: number }> {
+  try {
+    if (!process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN) {
+      return { items: [], total: 0 };
+    }
+    return await fetcher();
+  } catch (error) {
+    console.warn('[Storyblok] Fetch failed, using fallback data:', error);
+    return { items: [], total: 0 };
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Queries
 // ---------------------------------------------------------------------------
@@ -188,7 +200,7 @@ export async function getEvents(): Promise<EventItem[]> {
  * Fetch archived events (past events) for event history
  */
 export async function getEventsArchive(page: number = 1, perPage: number = 10): Promise<{ items: EventItem[]; total: number }> {
-  return safeFetch(async () => {
+  return safeFetchPaginated(async () => {
     const { data } = await Storyblok.get('cdn/stories', {
       starts_with: 'events/',
       sort_by: 'content.date:desc',
@@ -217,7 +229,7 @@ export async function getEventsArchive(page: number = 1, perPage: number = 10): 
  * Fetch paginated news for archive view
  */
 export async function getNewsPaginated(page: number = 1, perPage: number = 9): Promise<{ items: NewsItem[]; total: number }> {
-  return safeFetch(async () => {
+  return safeFetchPaginated(async () => {
     const { data } = await Storyblok.get('cdn/stories', {
       starts_with: 'news/',
       sort_by: 'first_published_at:desc',
@@ -246,7 +258,7 @@ export async function getNewsPaginated(page: number = 1, perPage: number = 9): P
  * Fetch paginated gallery images for archive view
  */
 export async function getGalleryPaginated(page: number = 1, perPage: number = 12): Promise<{ items: GalleryImage[]; total: number }> {
-  return safeFetch(async () => {
+  return safeFetchPaginated(async () => {
     const { data } = await Storyblok.get('cdn/stories', {
       starts_with: 'galerie/',
       sort_by: 'first_published_at:desc',
