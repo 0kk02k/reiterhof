@@ -49,14 +49,8 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
   const yImage = useTransform(scrollYProgress, [0, 1], [-8, 8]);
   const yText = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
-  // Dynamische Spaltenbreite basierend auf dem Seitenverhältnis des Bildes
-  const ratio = (img.width || 4) / (img.height || 3);
-  let colSpan = 'md:col-span-6'; // Standard/Quadratisch
-  if (ratio > 1.2) colSpan = 'md:col-span-7 lg:col-span-8'; // Querformat
-  else if (ratio < 0.8) colSpan = 'md:col-span-5 lg:col-span-4'; // Hochformat
-
-  // Sanfter Stagger-Effekt für die asymmetrische Ästhetik, aber ohne gigantische Lücken
-  const stagger = index % 2 !== 0 ? 'md:mt-12 lg:mt-16' : 'md:mt-0';
+  // Für asymmetrische Breiten innerhalb der festen CSS-Spalten
+  const widths = ['w-full', 'w-[90%] ml-auto', 'w-[85%]', 'w-full', 'w-[95%] mr-auto', 'w-[90%]'];
 
   return (
     <motion.div
@@ -65,7 +59,7 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewportOnce}
       transition={{ duration: 0.8, delay: (index % 2) * 0.1 }}
-      className={`relative w-full self-start ${colSpan} ${stagger} mb-24 md:mb-0`}
+      className={`relative ${widths[index % widths.length]} break-inside-avoid mb-24 md:mb-32`}
     >
       {/* Container für das asymmetrische Bild */}
       <motion.div 
@@ -133,8 +127,8 @@ const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
           </p>
         </motion.div>
 
-        {/* Asymmetrisches CSS-Grid, das sich dicht packt (dense), um Whitespace zu minimieren */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-x-12 lg:gap-x-16 grid-flow-dense">
+        {/* Intelligentes Masonry-Layout über CSS-Columns, garantiert side-by-side auf Desktop */}
+        <div className="columns-1 md:columns-2 gap-x-12 lg:gap-x-16">
           {images.map((img, i) => (
             <GalleryItem key={img.url + i} img={img} index={i} />
           ))}
