@@ -174,7 +174,7 @@ const Navigation: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-white/95 backdrop-blur-xl border-t border-sand-200 overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-4 space-y-1">
+            <div className="px-4 pt-2 pb-6 space-y-1 text-right">
               {links.map((link, i) =>
                 link.children ? (
                   <div key={link.name}>
@@ -185,10 +185,10 @@ const Navigation: React.FC = () => {
                       <motion.a
                         key={child.name}
                         href={child.href}
-                        initial={{ opacity: 0, x: -16 }}
+                        initial={{ opacity: 0, x: 16 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.03 }}
-                        className="block px-4 py-2.5 text-bark-800 font-semibold hover:bg-sand-100 rounded-lg transition-colors pl-8"
+                        className="block px-4 py-2.5 text-bark-800 font-semibold hover:bg-sand-100 rounded-lg transition-colors"
                       >
                         {child.name}
                       </motion.a>
@@ -198,7 +198,7 @@ const Navigation: React.FC = () => {
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    initial={{ opacity: 0, x: -16 }}
+                    initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
                     className="block px-4 py-3 text-bark-800 font-semibold hover:bg-sand-100 rounded-lg transition-colors"
@@ -207,14 +207,6 @@ const Navigation: React.FC = () => {
                   </motion.a>
                 )
               )}
-              <div className="px-4 pt-3">
-                <a
-                  href="/reitschule"
-                  className="block w-full bg-bark-700 text-sand-100 px-6 py-3 rounded-xl font-bold text-center"
-                >
-                  Jetzt Buchen
-                </a>
-              </div>
             </div>
           </motion.div>
         )}
