@@ -42,12 +42,12 @@ const gridClasses = [
 ];
 
 const textPositions = [
-  '-bottom-6 -right-2 md:-right-6',    // 0: right
-  '-bottom-8 -left-2 md:-left-6',      // 1: left
-  '-bottom-4 -right-2 md:-right-6',    // 2: right
-  '-bottom-8 -left-2 md:-left-10',     // 3: left
-  '-bottom-6 -right-2 md:-right-8',    // 4: right
-  '-bottom-8 -left-2 md:-left-6'       // 5: left
+  '-bottom-6 -right-4 md:-right-10',    // 0: right
+  '-bottom-8 -left-4 md:-left-10',      // 1: left
+  '-bottom-4 -right-4 md:-right-8',     // 2: right
+  '-bottom-8 -left-4 md:-left-12',      // 3: left
+  '-bottom-6 -right-4 md:-right-10',    // 4: right
+  '-bottom-8 -left-4 md:-left-8'        // 5: left
 ];
 
 const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
@@ -97,7 +97,7 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
 
       {/* Überlappende Textbox (15-20%) mit Parallax-Scroll */}
       <motion.div
-        className={`absolute ${textPositions[index % textPositions.length]} w-4/5 md:w-3/4 bg-paper p-5 md:p-6 shadow-2xl z-20 border border-sand-200/50 will-change-transform`}
+        className={`absolute ${textPositions[index % textPositions.length]} w-[85%] md:w-2/3 max-w-[320px] bg-paper p-5 md:p-6 shadow-2xl z-20 border border-sand-200/50 will-change-transform`}
         style={{ y: yText }}
       >
         <p className="font-caption italic text-bark-800 text-lg md:text-xl leading-relaxed">
