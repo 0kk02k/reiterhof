@@ -13,3 +13,87 @@ h1, h2, h3, h4 {
 ::selection {
   background-color: rgba(16, 185, 129, 0.15);
 }
+
+/* Skip-to-content link for keyboard navigation */
+.skip-to-content {
+  @apply absolute -top-full left-4 z-[100] bg-bark-800 text-sand-100 px-6 py-3 rounded-b-lg font-bold text-sm uppercase tracking-widest transition-all;
+}
+
+.skip-to-content:focus {
+  @apply top-0;
+}
+
+/* Focus-visible styles for accessibility (WCAG 2.2 AA) */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-meadow-600;
+}
+
+/* Remove default outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth scroll with reduced-motion respect */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive fluid typography with clamp() */
+html {
+  font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+}
+
+/* Max line length for readability (65-75 chars) */
+.prose,
+[role="article"],
+section p {
+  max-width: 70ch;
+}
+
+/* Ensure adequate contrast for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for horizontal scrolling sections */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d3c4 #f5f3ee;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f5f3ee;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #d6d3c4;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}

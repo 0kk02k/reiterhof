@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   return (
     <>
       <footer className="bg-bark-900 text-sand-100 py-20 px-6 pb-28 md:pb-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12">
           <div className="space-y-4">
             <h3 className="text-2xl font-display font-bold">Biohof Mühlenberg</h3>
             <p className="text-sand-200/70 leading-relaxed">Zum Mühlenberg<br />14797 Kloster Lehnin<br />OT Trechwitz</p>
@@ -26,6 +26,14 @@ const Footer: React.FC = () => {
               <a href="/erleben/kremserfahrten" className="hover:text-sand-100 transition-colors">Kremserfahrten</a>
               <a href="/biohof" className="hover:text-sand-100 transition-colors">Biohof</a>
               <a href="/#news" className="hover:text-sand-100 transition-colors">Aktuelles</a>
+            </nav>
+          </div>
+          <div className="space-y-4">
+            <h4 className="font-bold uppercase tracking-widest text-bark-400 text-sm">Archiv</h4>
+            <nav className="flex flex-col space-y-2 text-sand-200/70">
+              <a href="/archiv/news" className="hover:text-sand-100 transition-colors">News-Archiv</a>
+              <a href="/archiv/galerie" className="hover:text-sand-100 transition-colors">Galerie-Archiv</a>
+              <a href="/archiv/events" className="hover:text-sand-100 transition-colors">Termine-Archiv</a>
             </nav>
           </div>
           <div className="space-y-4">
