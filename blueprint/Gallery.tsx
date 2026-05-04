@@ -28,8 +28,10 @@ const defaultImages = [
   { url: '/images/gallery-sonnenuntergang.jpg', alt: 'Sonnenuntergang', caption: 'Abendstimmung über dem Mühlenberg', width: 900, height: 600 },
 ];
 
-const masks = [
-  'url(/masks/edge-1.svg)', 'url(/masks/edge-2.svg)', 'url(/masks/edge-3.svg)'
+const clipPaths = [
+  'polygon(1% 0, 100% 2%, 99% 100%, 0 98%)',
+  'polygon(0 1%, 98% 0, 100% 99%, 2% 100%)',
+  'polygon(2% 2%, 100% 0, 98% 98%, 0 100%)'
 ];
 
 const textPositions = [
@@ -69,12 +71,7 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
         <div
           className="relative w-full bg-sand-200 overflow-hidden shadow-rustic group"
           style={{
-            WebkitMaskImage: masks[index % masks.length],
-            WebkitMaskSize: '100% 100%',
-            WebkitMaskRepeat: 'no-repeat',
-            maskImage: masks[index % masks.length],
-            maskSize: '100% 100%',
-            maskRepeat: 'no-repeat',
+            clipPath: clipPaths[index % clipPaths.length],
             aspectRatio: `${img.width || 4} / ${img.height || 3}`,
           }}
         >

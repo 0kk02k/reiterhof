@@ -47,12 +47,7 @@ export default function PensionspferdePage() {
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5, delay: 0.15 }} 
             className="aspect-[4/3] bg-sand-200 overflow-hidden shadow-rustic relative group rotate-1"
             style={{
-              WebkitMaskImage: `url(/masks/edge-3.svg)`,
-              WebkitMaskSize: '100% 100%',
-              WebkitMaskRepeat: 'no-repeat',
-              maskImage: `url(/masks/edge-3.svg)`,
-              maskSize: '100% 100%',
-              maskRepeat: 'no-repeat',
+              clipPath: 'polygon(2% 2%, 100% 0, 98% 98%, 0 100%)'
             }}
           >
             <Image src="/images/pensionspferde-weide.jpg" alt="Pensionspferde Weide" fill className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />

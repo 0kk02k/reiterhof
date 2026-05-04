@@ -53,14 +53,8 @@ const Team: React.FC<TeamProps> = ({ members = defaultMembers }) => {
               <div 
                 className="w-48 h-48 mx-auto mb-8 bg-sand-200 flex items-center justify-center overflow-hidden relative shadow-rustic transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl"
                 style={{
-                  WebkitMaskImage: `url(/masks/edge-${(i % 3) + 1}.svg)`,
-                  WebkitMaskSize: '100% 100%',
-                  WebkitMaskRepeat: 'no-repeat',
-                  maskImage: `url(/masks/edge-${(i % 3) + 1}.svg)`,
-                  maskSize: '100% 100%',
-                  maskRepeat: 'no-repeat',
-                }}
-              >
+                  clipPath: ['polygon(1% 0, 100% 2%, 99% 100%, 0 98%)', 'polygon(0 1%, 98% 0, 100% 99%, 2% 100%)', 'polygon(2% 2%, 100% 0, 98% 98%, 0 100%)'][i % 3]
+                }}              >
                 {member.image ? (
                   <Image 
                     src={member.image} 

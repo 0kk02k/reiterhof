@@ -48,12 +48,7 @@ export default function ReiterferienPage() {
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ duration: 0.5, delay: 0.15 }} 
             className="aspect-[4/3] bg-sand-200 overflow-hidden shadow-rustic relative group -rotate-1"
             style={{
-              WebkitMaskImage: `url(/masks/edge-1.svg)`,
-              WebkitMaskSize: '100% 100%',
-              WebkitMaskRepeat: 'no-repeat',
-              maskImage: `url(/masks/edge-1.svg)`,
-              maskSize: '100% 100%',
-              maskRepeat: 'no-repeat',
+              clipPath: 'polygon(1% 0, 100% 2%, 99% 100%, 0 98%)'
             }}
           >
             <Image src="/images/reiterferien-kinder.jpg" alt="Reiterferien am Biohof" fill className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />

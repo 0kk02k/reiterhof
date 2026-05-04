@@ -64,12 +64,7 @@ export default function BiohofPage() {
             transition={{ duration: 0.5 }}
             className="order-2 lg:order-1 aspect-[4/3] bg-sand-200 overflow-hidden shadow-rustic relative group -rotate-1"
             style={{
-              WebkitMaskImage: `url(/masks/edge-2.svg)`,
-              WebkitMaskSize: '100% 100%',
-              WebkitMaskRepeat: 'no-repeat',
-              maskImage: `url(/masks/edge-2.svg)`,
-              maskSize: '100% 100%',
-              maskRepeat: 'no-repeat',
+              clipPath: 'polygon(0 1%, 98% 0, 100% 99%, 2% 100%)'
             }}
           >
             <Image 

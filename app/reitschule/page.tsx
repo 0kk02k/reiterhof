@@ -78,12 +78,7 @@ export default function ReitschulePage() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="aspect-[3/4] bg-sand-200 overflow-hidden shadow-rustic max-h-[600px] relative group rotate-1"
             style={{
-              WebkitMaskImage: `url(/masks/edge-1.svg)`,
-              WebkitMaskSize: '100% 100%',
-              WebkitMaskRepeat: 'no-repeat',
-              maskImage: `url(/masks/edge-1.svg)`,
-              maskSize: '100% 100%',
-              maskRepeat: 'no-repeat',
+              clipPath: 'polygon(1% 0, 100% 2%, 99% 100%, 0 98%)'
             }}
           >
             <Image 
