@@ -35,12 +35,12 @@ const clipPaths = [
 ];
 
 const textPositions = [
-  '-bottom-6 -right-4 md:-right-10',    // 0: right
-  '-bottom-8 -left-4 md:-left-10',      // 1: left
-  '-bottom-4 -right-4 md:-right-8',     // 2: right
-  '-bottom-8 -left-4 md:-left-12',      // 3: left
-  '-bottom-6 -right-4 md:-right-10',    // 4: right
-  '-bottom-8 -left-4 md:-left-8'        // 5: left
+  '-bottom-12 -right-4 md:-bottom-6 md:-right-10',    // 0: right
+  '-bottom-14 -left-4 md:-bottom-8 md:-left-10',      // 1: left
+  '-bottom-10 -right-4 md:-bottom-4 md:-right-8',     // 2: right
+  '-bottom-12 -left-4 md:-bottom-8 md:-left-12',      // 3: left
+  '-bottom-10 -right-4 md:-bottom-6 md:-right-10',    // 4: right
+  '-bottom-14 -left-4 md:-bottom-8 md:-left-8'        // 5: left
 ];
 
 const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {

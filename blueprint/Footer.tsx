@@ -52,16 +52,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;ixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-xl border-t border-sand-200 px-4 py-3 safe-area-bottom">
-        <a
-          href="/reitschule"
-          className="block w-full py-3.5 bg-bark-800 text-sand-100 font-bold rounded-xl text-center text-sm hover:bg-bark-700 transition-colors"
-        >
-          Jetzt Buchen →
-        </a>
-      </div>
-    </>
-  );
-};
-
 export default Footer;
