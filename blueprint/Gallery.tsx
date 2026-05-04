@@ -54,9 +54,9 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   
-  // Reduziertes Parallax-Verhalten, um Ablösung zu vermeiden und Performance zu schonen
-  const yImage = useTransform(scrollYProgress, [0, 1], [-5, 5]);
-  const yText = useTransform(scrollYProgress, [0, 1], [15, -15]);
+  // Parallax-Verhalten wieder leicht verstärkt, da die Ablösung durch self-start behoben wurde
+  const yImage = useTransform(scrollYProgress, [0, 1], [-8, 8]);
+  const yText = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
     <motion.div
@@ -65,13 +65,8 @@ const GalleryItem = ({ img, index }: { img: GalleryImage; index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewportOnce}
       transition={{ duration: 0.8, delay: (index % 2) * 0.1 }}
-      className={`relative w-full ${gridClasses[index % gridClasses.length]} mb-24 md:mb-0`}
+      className={`relative w-full self-start ${gridClasses[index % gridClasses.length]} mb-24 md:mb-0`}
     >
-      {/* Akzent-Element (Bildnummer) bricht die äußere Kante */}
-      <span className="absolute -top-12 -left-6 md:-top-16 md:-left-10 text-7xl md:text-9xl font-display text-bark-900/5 z-0 select-none pointer-events-none">
-        {String(index + 1).padStart(2, '0')}
-      </span>
-
       {/* Container für das asymmetrische Bild */}
       <motion.div 
         className="relative w-full z-10 will-change-transform"
