@@ -115,7 +115,7 @@ export default function ReitschulePage() {
                 <motion.a
                   href="/#kontakt"
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                  className="block text-center w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md"
+                  className="block text-center w-full py-4 bg-wheat-700 text-sand-100 font-bold rounded-lg hover:bg-wheat-800 transition-colors uppercase tracking-widest text-sm shadow-md"
                 >
                   Kursdetails anfragen
                 </motion.a>

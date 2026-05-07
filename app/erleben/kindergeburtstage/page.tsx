@@ -49,7 +49,7 @@ export default function KindergeburtstagePage() {
                 <div className="mt-auto">
                   <span className="block text-3xl font-display font-bold text-bark-800 mb-2">{p.preis}</span>
                   <span className="block text-xs text-bark-400 uppercase tracking-widest font-bold mb-6">für bis zu 10 Kinder</span>
-                  <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Geburtstag buchen</motion.a>
+                  <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-wheat-700 text-sand-100 font-bold rounded-lg hover:bg-wheat-800 transition-colors uppercase tracking-widest text-sm shadow-md">Geburtstag buchen</motion.a>
                 </div>
               </motion.div>
             ))}

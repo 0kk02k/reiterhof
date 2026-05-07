@@ -77,7 +77,7 @@ export default function ReiterferienPage() {
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{p.desc}</p>
                 <span className="text-3xl font-display font-bold text-bark-800 mb-6">{p.preis}</span>
-                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Platz sichern</motion.a>
+                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-wheat-700 text-sand-100 font-bold rounded-lg hover:bg-wheat-800 transition-colors uppercase tracking-widest text-sm shadow-md">Platz sichern</motion.a>
               </motion.div>
             ))}
           </div>
@@ -104,7 +104,7 @@ export default function ReiterferienPage() {
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{p.desc}</p>
                 <span className="text-3xl font-display font-bold text-bark-800 mb-6">{p.preis}</span>
-                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-bark-800 text-sand-100 font-bold rounded-lg hover:bg-bark-900 transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.a>
+                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-wheat-700 text-sand-100 font-bold rounded-lg hover:bg-wheat-800 transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.a>
               </motion.div>
             ))}
           </div>
