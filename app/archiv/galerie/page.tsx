@@ -17,6 +17,15 @@ const clipPaths = [
   'polygon(2% 2%, 100% 0, 98% 98%, 0 100%)'
 ];
 
+const fallbackImages = [
+  { src: '/images/gallery-pferde-weide.jpg', alt: 'Pferde auf der Weide', caption: 'Unsere Schulpferde auf den Brandenburger Wiesen', width: 900, height: 600 },
+  { src: '/images/gallery-reitunterricht.jpg', alt: 'Reitunterricht', caption: 'Individueller Unterricht in kleiner Gruppe', width: 400, height: 600 },
+  { src: '/images/gallery-pferdeportrait.jpg', alt: 'Pferdeportrait', caption: 'Harmonie zwischen Mensch und Tier', width: 600, height: 400 },
+  { src: '/images/gallery-hof-atmosphaere.jpg', alt: 'Hof-Atmosphäre', caption: 'Ein Ort zum Durchatmen', width: 400, height: 400 },
+  { src: '/images/gallery-landschaft.jpg', alt: 'Weite Landschaften', caption: 'Kloster Lehnin — Natur pur', width: 900, height: 600 },
+  { src: '/images/gallery-sonnenuntergang.jpg', alt: 'Sonnenuntergang', caption: 'Abendstimmung über dem Mühlenberg', width: 900, height: 600 },
+];
+
 export default async function GalleryArchivePage({ searchParams }: GalleryArchivePageProps) {
   const page = parseInt(searchParams.page || '1', 10);
   const perPage = 12;
@@ -113,11 +122,29 @@ export default async function GalleryArchivePage({ searchParams }: GalleryArchiv
               )}
             </>
           ) : (
-            <div className="text-center py-20">
-              <p className="text-bark-600 text-lg">Noch keine Bilder im Archiv.</p>
-              <Link href="/" className="inline-block mt-6 text-meadow-700 font-bold hover:text-meadow-800">
-                Zurück zur Startseite
-              </Link>
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
+              {fallbackImages.map((img, i) => (
+                <div key={img.src} className="break-inside-avoid mb-8">
+                  <div
+                    className="relative w-full bg-sand-200 overflow-hidden shadow-rustic"
+                    style={{
+                      clipPath: clipPaths[i % clipPaths.length],
+                      aspectRatio: `${img.width} / ${img.height}`,
+                    }}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p className="font-caption italic text-bark-700">{img.caption}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>

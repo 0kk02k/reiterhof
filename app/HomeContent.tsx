@@ -63,7 +63,7 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
     email: 'info@biohof-muehlenberg.de',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Zum Mühlenberg',
+      streetAddress: 'Schenkenberger Straße 24',
       addressLocality: 'Kloster Lehnin',
       addressRegion: 'Brandenburg',
       postalCode: '14797',
@@ -71,8 +71,8 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 52.38,
-      longitude: 12.75,
+      latitude: 52.3678,
+      longitude: 12.7174,
     },
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '18:00' },
@@ -112,6 +112,12 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
       </section>
 
       <Gallery images={galleryData && galleryData.length > 0 ? galleryData : undefined} />
+
+      <div className="text-center -mt-12 pb-16">
+        <a href="/archiv/galerie" className="inline-block text-bark-500 hover:text-bark-700 font-body text-sm uppercase tracking-widest transition-colors border-b border-bark-300 hover:border-bark-500 pb-1">
+          Weitere Impressionen →
+        </a>
+      </div>
 
       {/* News */}
       <section id="news" className="py-28 bg-paper relative">
@@ -349,7 +355,7 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
             <div className="space-y-5">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-600 text-xl border-2 border-sand-100 shadow-sm">📍</div>
-                <span className="text-bark-800 font-medium">Zum Mühlenberg, 14797 Kloster Lehnin</span>
+                <span className="text-bark-800 font-medium">Schenkenberger Str. 24, 14797 Kloster Lehnin OT Trechwitz</span>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-sand-200 rounded-full flex items-center justify-center text-bark-600 text-xl border-2 border-sand-100 shadow-sm">📞</div>
@@ -383,7 +389,7 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
             className="rounded-2xl overflow-hidden shadow-rustic border border-sand-200 h-80"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.8!2d12.75!3d52.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDIyJzQ4LjAiTiAxMsKwNDUnMDAuMCJF!5e0!3m2!1sde!2sde!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.8!2d12.7174!3d52.3678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDIyJzA0LjQiTiAxMsKwNDMnMDIuNiJF!5e0!3m2!1sde!2sde!4v1"
               width="100%"
               height="100%"
               style={{ border: 0 }}
