@@ -9,7 +9,6 @@ import PriceTable from '../blueprint/PriceTable';
 import ContactForm from '../blueprint/ContactForm';
 import Team from '../blueprint/Team';
 import Gallery from '../blueprint/Gallery';
-import EventTimelineCompact from '../blueprint/EventTimelineCompact';
 
 const vp = { once: true, margin: '-60px' } as const;
 
@@ -23,6 +22,7 @@ interface HomeContentProps {
 
 export default function HomeContent({ newsData, teamData, pricingData, galleryData, eventData }: HomeContentProps) {
   const [selectedNews, setSelectedNews] = useState<any | null>(null);
+  const [showAllEvents, setShowAllEvents] = useState(false);
 
   // Prevent background scrolling when modal is open
   useEffect(() => {
@@ -151,8 +151,116 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
         </div>
       </section>
 
-      {/* Event Timeline — Kompakte Version */}
-      <EventTimelineCompact events={events} />
+      {/* Termine — kommende Veranstaltungen */}
+      {events && events.length > 0 && (() => {
+        const visibleEvents = events.slice(0, 3);
+        const hiddenEvents = events.slice(3);
+        const EventCard = ({ evt, index }: { evt: any; index: number }) => {
+          const linkHref = evt.link || '/#kontakt';
+          return (
+            <motion.a
+              href={linkHref}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={vp}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="block bg-paper p-6 md:p-8 rounded-xl border border-sand-200 shadow-sm hover:shadow-rustic transition-all group"
+            >
+              <div className="flex flex-col md:flex-row md:items-start gap-4">
+                <span className="text-sm font-bold text-meadow-700 uppercase tracking-widest whitespace-nowrap border border-meadow-200 bg-meadow-50 px-3 py-1.5 rounded self-start">
+                  {formatEventDate(evt.date)}
+                </span>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl md:text-2xl font-display font-bold text-bark-900 group-hover:text-bark-700 transition-colors leading-snug mb-2">
+                    {evt.title}
+                  </h3>
+                  {evt.description && (
+                    <p className="text-bark-600 leading-relaxed">{evt.description}</p>
+                  )}
+                </div>
+              </div>
+            </motion.a>
+          );
+        };
+
+        return (
+          <section id="events" className="py-28 bg-sand-50 px-6 border-t border-sand-200/50 relative">
+            <div
+              className="absolute inset-0 z-0 opacity-[0.04] mix-blend-multiply pointer-events-none"
+              style={{
+                backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+              }}
+            />
+            <div className="max-w-3xl mx-auto relative z-10">
+              <div className="text-center mb-14">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+                  transition={{ duration: 0.5 }}
+                  className="text-4xl md:text-5xl font-display text-bark-900 mb-4"
+                >
+                  Kommende Termine
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="text-lg text-bark-500 italic font-caption"
+                >
+                  Unsere Hof-Agenda — Veranstaltungen, Feste und besondere Anlässe
+                </motion.p>
+              </div>
+
+              {/* Top 3 events — always visible */}
+              <div className="space-y-4">
+                {visibleEvents.map((evt: any, i: number) => (
+                  <EventCard key={evt._id || evt.title || i} evt={evt} index={i} />
+                ))}
+              </div>
+
+              {/* Expandable: remaining events */}
+              {hiddenEvents.length > 0 && (
+                <>
+                  <AnimatePresence>
+                    {showAllEvents && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="max-h-[24rem] overflow-y-auto mt-4 pr-2 space-y-4 scrollbar-thin scrollbar-thumb-sand-300 scrollbar-track-transparent">
+                          {hiddenEvents.map((evt: any, i: number) => (
+                            <EventCard key={evt._id || evt.title || i} evt={evt} index={i} />
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <div className="mt-8 text-center">
+                    <button
+                      onClick={() => setShowAllEvents(prev => !prev)}
+                      className="inline-flex items-center gap-2 px-8 py-3 bg-bark-800 text-sand-100 font-bold rounded hover:bg-bark-900 transition-colors text-sm uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-bark-400 focus:ring-offset-2 focus:ring-offset-sand-50"
+                      aria-expanded={showAllEvents}
+                      aria-controls="events-hidden"
+                    >
+                      {showAllEvents ? 'Weniger anzeigen' : 'Alle Termine'}
+                      <motion.span
+                        animate={{ rotate: showAllEvents ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="inline-block"
+                        aria-hidden="true"
+                      >
+                        ↓
+                      </motion.span>
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          </section>
+        );
+      })()}
 
       <Team members={teamData && teamData.length > 0 ? teamData : undefined} />
 
