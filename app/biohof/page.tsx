@@ -19,16 +19,16 @@ export default function BiohofPage() {
       <Navigation />
 
       {/* Subpage Hero */}
-      <header className="pt-32 pb-24 bg-bark-800 text-sand-100 px-6 relative overflow-hidden">
+      <header className="pt-32 pb-24 bg-sage-800 text-sand-100 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-bark-400 rounded-full blur-3xl translate-y-1/2" />
+          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-sage-400 rounded-full blur-3xl translate-y-1/2" />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto text-center md:text-left relative"
         >
-          <nav className="text-bark-400 text-sm mb-6 uppercase tracking-widest font-bold">
+          <nav className="text-sage-400 text-sm mb-6 uppercase tracking-widest font-bold">
             <a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Biohof
           </nav>
           <h1 className="text-5xl md:text-7xl font-display mb-6">Ökologische Landwirtschaft</h1>
@@ -47,10 +47,10 @@ export default function BiohofPage() {
               key={p.title}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="space-y-4 border-l-4 border-bark-400 pl-6 py-2"
+              className="space-y-4 border-l-4 border-sage-400 pl-6 py-2"
             >
-              <h3 className="text-2xl font-display text-bark-900">{p.title}</h3>
-              <p className="text-bark-600 leading-relaxed font-body text-lg">{p.desc}</p>
+              <h3 className="text-2xl font-display text-sage-900">{p.title}</h3>
+              <p className="text-sage-600 leading-relaxed font-body text-lg">{p.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -79,15 +79,15 @@ export default function BiohofPage() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="order-1 lg:order-2 space-y-6"
           >
-            <h2 className="text-4xl md:text-5xl font-display text-bark-900">Vom Euter ins Glas</h2>
-            <p className="text-lg text-bark-600 leading-relaxed font-body">
+            <h2 className="text-4xl md:text-5xl font-display text-sage-900">Vom Euter ins Glas</h2>
+            <p className="text-lg text-sage-600 leading-relaxed font-body">
               Unsere moderne Milchproduktion verbindet technisches Know-how mit
               höchstem Respekt vor dem Tier. Wir produzieren Qualität, die man schmeckt.
             </p>
-            <ul className="space-y-4 text-bark-800 font-bold font-body text-lg">
-              <li className="flex items-center gap-3"><span className="text-bark-500">✓</span> DE-ÖKO-037 zertifiziert</li>
-              <li className="flex items-center gap-3"><span className="text-bark-500">✓</span> Regionale Vermarktung</li>
-              <li className="flex items-center gap-3"><span className="text-bark-500">✓</span> Ohne Gentechnik</li>
+            <ul className="space-y-4 text-sage-800 font-bold font-body text-lg">
+              <li className="flex items-center gap-3"><span className="text-sage-500">✓</span> DE-ÖKO-037 zertifiziert</li>
+              <li className="flex items-center gap-3"><span className="text-sage-500">✓</span> Regionale Vermarktung</li>
+              <li className="flex items-center gap-3"><span className="text-sage-500">✓</span> Ohne Gentechnik</li>
             </ul>
           </motion.div>
         </div>

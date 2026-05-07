@@ -111,6 +111,18 @@ const config: Config = {
           800: '#4d3758',
           900: '#3e2d47',
         },
+        amber: {
+          50: '#fef9f0',
+          100: '#fdf0d8',
+          200: '#f9dfad',
+          300: '#f2c87d',
+          400: '#e5ab4e',
+          500: '#d49530',
+          600: '#c07f28',
+          700: '#b87326',
+          800: '#8f5a1e',
+          900: '#6d4517',
+        },
       },
       fontFamily: {
         display: ['Lora', 'Georgia', 'serif'],

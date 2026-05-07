@@ -17,10 +17,10 @@ export default function KremserfahrtenPage() {
   return (
     <main className="min-h-screen bg-sand-50">
       <Navigation />
-      <header className="pt-32 pb-24 bg-bark-900 text-sand-100 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute top-1/4 right-0 w-96 h-96 bg-meadow-600 rounded-full blur-3xl translate-x-1/2" /></div>
+      <header className="pt-32 pb-24 bg-amber-900 text-sand-100 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute top-1/4 right-0 w-96 h-96 bg-amber-400 rounded-full blur-3xl translate-x-1/2" /></div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-7xl mx-auto relative">
-          <nav className="text-bark-400 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Kremserfahrten</nav>
+          <nav className="text-amber-400 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Kremserfahrten</nav>
           <h1 className="text-5xl md:text-7xl font-display mb-6">Kremserfahrten</h1>
           <p className="text-xl text-sand-200/70 max-w-2xl leading-relaxed">Romantik und Naturerlebnis – entdecken Sie die brandenburgische Landschaft vom Pferdewagen aus.</p>
         </motion.div>
@@ -73,12 +73,12 @@ export default function KremserfahrtenPage() {
           </div>
         </div>
       </section>
-      <section className="py-32 bg-sky-800 text-sand-100 text-center px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 right-0 w-80 h-80 bg-sky-400 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" /></div>
+      <section className="py-32 bg-amber-800 text-sand-100 text-center px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 right-0 w-80 h-80 bg-amber-400 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" /></div>
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Ihre Wunschfahrt</h2>
-          <p className="text-xl text-sky-100/60 mb-10">Individuelle Routen und Gruppengrößen möglich – fragen Sie uns.</p>
-          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-sky-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Unverbindlich anfragen</motion.a>
+          <p className="text-xl text-amber-100/60 mb-10">Individuelle Routen und Gruppengrößen möglich – fragen Sie uns.</p>
+          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-amber-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Unverbindlich anfragen</motion.a>
         </div>
       </section>
     </main>

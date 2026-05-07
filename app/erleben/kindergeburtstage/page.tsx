@@ -16,10 +16,10 @@ export default function KindergeburtstagePage() {
   return (
     <main className="min-h-screen bg-sand-50">
       <Navigation />
-      <header className="pt-32 pb-24 bg-bark-900 text-sand-100 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 left-0 w-96 h-96 bg-meadow-600 rounded-full blur-3xl translate-y-1/2" /></div>
+      <header className="pt-32 pb-24 bg-rose-900 text-sand-100 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-400 rounded-full blur-3xl translate-y-1/2" /></div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-7xl mx-auto relative">
-          <nav className="text-bark-400 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Kindergeburtstage</nav>
+          <nav className="text-rose-400 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Kindergeburtstage</nav>
           <h1 className="text-5xl md:text-7xl font-display mb-6">Kindergeburtstage</h1>
           <p className="text-xl text-sand-200/70 max-w-2xl leading-relaxed">Ein unvergesslicher Geburtstag auf dem Hof – mit Pferden, Natur und glücklichen Kinderaugen.</p>
         </motion.div>
