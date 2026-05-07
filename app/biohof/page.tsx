@@ -93,6 +93,51 @@ export default function BiohofPage() {
         </div>
       </section>
 
+      {/* Kaminholz */}
+      <section className="py-28 bg-paper px-6 border-t border-sand-200/50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}
+            transition={{ duration: 0.5 }}
+            className="space-y-6"
+          >
+            <span className="inline-block text-xs font-bold text-sage-700 uppercase tracking-widest border border-sage-200 bg-sage-50 px-3 py-1.5 rounded">Aus unserem Wald</span>
+            <h2 className="text-4xl md:text-5xl font-display text-sage-900 leading-tight">Kaminholz vom eigenen Hof</h2>
+            <p className="text-lg text-sage-600 leading-relaxed font-body">
+              Aus der nachhaltigen Bewirtschaftung unserer hofeigenen Waldflächen bieten wir trockenes, lagerraumgerechtes Kaminholz an. Buche, Eiche und Erle — gespalten und einsatzbereit für Ihren Kamin oder Ofen.
+            </p>
+            <ul className="space-y-3 text-sage-800 font-bold font-body text-lg">
+              <li className="flex items-center gap-3"><span className="text-sage-500">✓</span> Natürlich getrocknet (Restfeuchte unter 20%)</li>
+              <li className="flex items-center gap-3"><span className="text-sage-500">✓</span> Gespalten, ca. 25–33 cm Länge</li>
+              <li className="flex items-center gap-3"><span className="text-sage-500">✓</span> Selbstabholung oder Lieferung möglich</li>
+            </ul>
+            <div className="mt-6 p-6 bg-sand-50/80 rounded-lg border border-sand-200 shadow-sm">
+              <h4 className="font-bold text-sage-900 text-lg mb-3">Preise</h4>
+              <div className="space-y-2 text-sage-700">
+                <div className="flex justify-between"><span>Schüttraummeter (SRM) Buche/Eiche</span><span className="font-bold text-sage-900">ab 65 €</span></div>
+                <div className="flex justify-between"><span>Schüttraummeter (SRM) Erle</span><span className="font-bold text-sage-900">ab 55 €</span></div>
+                <div className="flex justify-between"><span>Anlieferung (regional)</span><span className="font-bold text-sage-900">auf Anfrage</span></div>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="aspect-[4/3] bg-sand-200 overflow-hidden shadow-rustic relative group rotate-1"
+            style={{
+              clipPath: 'polygon(1% 0, 100% 2%, 99% 100%, 0 98%)'
+            }}
+          >
+            <Image
+              src="/images/biohof-kaminholz.jpg"
+              alt="Kaminholz vom Biohof Mühlenberg"
+              fill
+              className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-32 bg-sage-700 text-sand-100 text-center px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
