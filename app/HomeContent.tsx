@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '../blueprint/Navigation';
 import Hero from '../blueprint/Hero';
-import PriceTable from '../blueprint/PriceTable';
 import ContactForm from '../blueprint/ContactForm';
 import Team from '../blueprint/Team';
 import Gallery from '../blueprint/Gallery';
@@ -270,9 +269,62 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
 
       <Team members={teamData && teamData.length > 0 ? teamData : undefined} />
 
-      {/* Pricing */}
+      {/* Leistungen */}
       <section id="preise" className="py-28 max-w-7xl mx-auto px-6">
-        <PriceTable pricingData={pricingData && pricingData.length > 0 ? pricingData : undefined} />
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+          transition={{ duration: 0.5 }}
+          className="text-4xl md:text-5xl font-display text-bark-900 mb-6 text-center"
+        >
+          Unsere Leistungen
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-lg text-bark-500 text-center mb-16 max-w-2xl mx-auto italic font-caption"
+        >
+          Von der Reitstunde bis zur Pferdepension — entdecken Sie, was unser Hof bietet.
+        </motion.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <motion.a
+            href="/reitschule"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            transition={{ duration: 0.5 }}
+            className="group block bg-paper p-10 rounded-xl border border-sand-200 shadow-sm hover:shadow-rustic transition-all"
+          >
+            <h3 className="text-2xl font-display font-bold text-bark-900 group-hover:text-bark-700 transition-colors mb-3">Reitschule</h3>
+            <p className="text-bark-600 leading-relaxed mb-6">
+              Gruppen- und Einzelstunden, Longenunterricht für Anfänger und Fortgeschrittene. Kleine Gruppen, erfahrene Lehrpferde.
+            </p>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-bark-800 font-display font-bold">ab 20€</span>
+              <span className="text-bark-400 text-sm">/ Einheit</span>
+            </div>
+            <span className="inline-flex items-center gap-2 text-sm font-bold text-bark-800 uppercase tracking-widest border-b border-bark-300 group-hover:border-bark-800 pb-1 transition-colors">
+              Alle Details ansehen <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </span>
+          </motion.a>
+
+          <motion.a
+            href="/reitwelt/pensionspferde"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="group block bg-paper p-10 rounded-xl border border-sand-200 shadow-sm hover:shadow-rustic transition-all"
+          >
+            <h3 className="text-2xl font-display font-bold text-bark-900 group-hover:text-bark-700 transition-colors mb-3">Pensionspferde</h3>
+            <p className="text-bark-600 leading-relaxed mb-6">
+              Standardbox, Offenstall oder Premium — artgerechte Haltung mit täglichem Koppelgang auf 20 ha Weide.
+            </p>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-bark-800 font-display font-bold">ab 320€</span>
+              <span className="text-bark-400 text-sm">/ Monat</span>
+            </div>
+            <span className="inline-flex items-center gap-2 text-sm font-bold text-bark-800 uppercase tracking-widest border-b border-bark-300 group-hover:border-bark-800 pb-1 transition-colors">
+              Alle Details ansehen <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </span>
+          </motion.a>
+        </div>
       </section>
 
       {/* Contact */}

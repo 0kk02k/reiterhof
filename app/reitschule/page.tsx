@@ -125,6 +125,39 @@ export default function ReitschulePage() {
         </div>
       </section>
 
+      {/* Preise */}
+      <section className="py-28 bg-paper px-6 border-t border-sand-200/50">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-display text-bark-900 mb-14 text-center">Unsere Preise</h2>
+          <div className="bg-sand-100/80 backdrop-blur-sm rounded-3xl border border-sand-200 overflow-hidden">
+            {[
+              { name: 'Gruppenstunde', price: '25€', unit: 'pro Std.', desc: 'Maximal 6 Reiter pro Gruppe.' },
+              { name: 'Einzelstunde', price: '45€', unit: 'pro 45 Min.', desc: 'Intensivtraining für alle Level.' },
+              { name: 'Longe (Anfänger)', price: '20€', unit: 'pro 20 Min.', desc: 'Sicheriger Einstieg in den Sport.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={vp}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className={`p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between hover:bg-sand-50/50 transition-colors ${i > 0 ? 'border-t border-sand-200' : ''}`}
+              >
+                <div className="mb-3 md:mb-0">
+                  <h4 className="font-bold text-bark-900 text-lg">{item.name}</h4>
+                  <p className="text-bark-500 text-sm mt-1">{item.desc}</p>
+                </div>
+                <div className="flex flex-col items-start md:items-end">
+                  <span className="text-2xl font-display font-bold text-bark-700">{item.price}</span>
+                  <span className="text-xs text-bark-400 uppercase tracking-widest">{item.unit}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-bark-400 text-sm italic">Alle Preise inkl. MwSt. Individuelle Angebote auf Anfrage möglich.</p>
+        </div>
+      </section>
+
       {/* Reiterstübchen Banner */}
       <section className="py-16 md:py-28 px-6 bg-sand-100 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">

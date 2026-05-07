@@ -13,7 +13,6 @@ interface PriceItem {
 interface PriceCategory {
   _id?: string;
   title: string;
-  href?: string;
   items: PriceItem[];
 }
 
@@ -24,7 +23,6 @@ interface PriceTableProps {
 const defaultPricingData: PriceCategory[] = [
   {
     title: 'Reitschule',
-    href: '/reitschule',
     items: [
       { name: 'Gruppenstunde', price: '25€', unit: 'pro Std.', description: 'Maximal 6 Reiter pro Gruppe.' },
       { name: 'Einzelstunde', price: '45€', unit: 'pro 45 Min.', description: 'Intensivtraining für alle Level.' },
@@ -33,7 +31,6 @@ const defaultPricingData: PriceCategory[] = [
   },
   {
     title: 'Pensionspferde',
-    href: '/reitwelt/pensionspferde',
     items: [
       { name: 'Standardbox', price: 'ab 350€', unit: 'pro Monat', description: 'Inkl. Futter und täglicher Koppelgang.' },
       { name: 'Offenstall', price: 'ab 320€', unit: 'pro Monat', description: 'Naturnahe Haltung in der Herde.' },
@@ -65,17 +62,9 @@ const PriceTable: React.FC<PriceTableProps> = ({ pricingData = defaultPricingDat
               transition={{ duration: 0.5, delay: ci * 0.1 }}
               className="bg-white rounded-2xl shadow-sm border border-sand-200 overflow-hidden"
             >
-              <a
-                href={category.href || '#'}
-                className={`block bg-bark-800 px-6 py-4 group/header ${category.href ? 'hover:bg-bark-700 cursor-pointer' : ''} transition-colors`}
-              >
-                <h3 className="text-lg font-bold text-sand-100 tracking-wide flex items-center justify-between">
-                  {category.title}
-                  {category.href && (
-                    <span className="text-sand-300 text-sm font-normal group-hover/header:translate-x-1 transition-transform">→</span>
-                  )}
-                </h3>
-              </a>
+              <div className="bg-bark-800 px-6 py-4">
+                <h3 className="text-lg font-bold text-sand-100 tracking-wide">{category.title}</h3>
+              </div>
               <div className="divide-y divide-sand-100">
                 {category.items?.map((item) => (
                   <div key={item.name} className="p-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-sand-50/50 transition-colors">
