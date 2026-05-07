@@ -180,7 +180,23 @@ export default function ReitschulePage() {
               <p className="text-bark-600 leading-relaxed text-lg mb-6">
                 Das Herz des Hofes. Nach dem Satteln oder während die Kinder reiten, laden wir Sie ein, bei einer Tasse Kaffee und frischem Kuchen zusammenzukommen. Ein Ort zum Aufwärmen, Austauschen und Durchatmen.
               </p>
-              <span className="inline-block text-sm font-bold text-meadow-700 uppercase tracking-widest border-b border-meadow-400 pb-1">Täglich geöffnet</span>
+              <div className="mt-2 pt-5 border-t border-sand-200/60">
+                <span className="inline-block text-xs font-bold text-meadow-700 uppercase tracking-widest mb-3">Öffnungszeiten</span>
+                <div className="space-y-1.5 text-bark-600 text-sm">
+                  <div className="flex justify-between gap-6">
+                    <span>Mo – Fr</span>
+                    <span className="font-semibold text-bark-800">8:00 – 18:00 Uhr</span>
+                  </div>
+                  <div className="flex justify-between gap-6">
+                    <span>Samstag</span>
+                    <span className="font-semibold text-bark-800">9:00 – 16:00 Uhr</span>
+                  </div>
+                  <div className="flex justify-between gap-6">
+                    <span>Sonntag</span>
+                    <span className="font-semibold text-bark-800">10:00 – 14:00 Uhr</span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
