@@ -47,6 +47,12 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
     { title: 'Weihnachtsreiten', date: '2026-12-13', description: 'Die Reitschüler präsentieren kleine Quadrillen. Besuch vom Weihnachtsmann inklusive!', link: '/reitschule' },
   ];
 
+  const formatEventDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('de-DE', options).toUpperCase();
+  };
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
