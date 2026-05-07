@@ -17,12 +17,12 @@ export default function ReittherapiePage() {
   return (
     <main className="min-h-screen bg-sand-50">
       <Navigation />
-      <header className="pt-32 pb-24 bg-sky-900 text-sand-100 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 right-1/4 w-80 h-80 bg-sky-400 rounded-full blur-3xl translate-y-1/2" /></div>
+      <header className="pt-32 pb-24 bg-heide-900 text-sand-100 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 right-1/4 w-80 h-80 bg-heide-400 rounded-full blur-3xl translate-y-1/2" /></div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-7xl mx-auto relative">
-          <nav className="text-sky-300/60 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Reittherapie</nav>
+          <nav className="text-heide-300/60 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Reittherapie</nav>
           <h1 className="text-5xl md:text-7xl font-display mb-6">Reittherapie</h1>
-          <p className="text-xl text-sky-100/70 max-w-2xl leading-relaxed">Die heilende Kraft der Pferde – individuell und einfühlsam begleitet von qualifizierten Therapeutinnen.</p>
+          <p className="text-xl text-heide-100/70 max-w-2xl leading-relaxed">Die heilende Kraft der Pferde – individuell und einfühlsam begleitet von qualifizierten Therapeutinnen.</p>
         </motion.div>
       </header>
       <section className="py-28 bg-paper px-6 relative border-t border-sand-200/50">
@@ -72,18 +72,18 @@ export default function ReittherapiePage() {
                   </div>
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{a.desc}</p>
-                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-wheat-700 text-sand-100 font-bold rounded-lg hover:bg-wheat-800 transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.a>
+                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-[#bf9e32] text-sand-100 font-bold rounded-lg hover:bg-[#aa8c2c] active:bg-[#947a27] transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.a>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      <section className="py-32 bg-sky-800 text-sand-100 text-center px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 left-0 w-80 h-80 bg-sky-400 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" /></div>
+      <section className="py-32 bg-heide-800 text-sand-100 text-center px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute bottom-0 left-0 w-80 h-80 bg-heide-400 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" /></div>
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Kostenlose Erstberatung</h2>
-          <p className="text-xl text-sky-100/60 mb-10">Lernen Sie uns und unsere Pferde unverbindlich kennen.</p>
-          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-sky-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Beratung anfragen</motion.a>
+          <p className="text-xl text-heide-100/60 mb-10">Lernen Sie uns und unsere Pferde unverbindlich kennen.</p>
+          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-heide-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Beratung anfragen</motion.a>
         </div>
       </section>
     </main>

@@ -22,12 +22,12 @@ export default function ReiterferienPage() {
   return (
     <main className="min-h-screen bg-sand-50">
       <Navigation />
-      <header className="pt-32 pb-24 bg-wheat-900 text-sand-100 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute top-0 left-1/3 w-96 h-96 bg-wheat-400 rounded-full blur-3xl -translate-y-1/2" /></div>
+      <header className="pt-32 pb-24 bg-sky-900 text-sand-100 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute top-0 left-1/3 w-96 h-96 bg-sky-400 rounded-full blur-3xl -translate-y-1/2" /></div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-7xl mx-auto relative">
-          <nav className="text-wheat-300/60 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Urlaub & Reiterferien</nav>
+          <nav className="text-sky-300/60 text-sm mb-6 uppercase tracking-widest font-bold"><a href="/" className="hover:text-sand-100 transition-colors">Startseite</a> / Urlaub & Reiterferien</nav>
           <h1 className="text-5xl md:text-7xl font-display mb-6">Urlaub & Reiterferien</h1>
-          <p className="text-xl text-wheat-100/70 max-w-2xl leading-relaxed">Ob Pferdeabenteuer für die Kids alleine oder entspannter Landurlaub für die ganze Familie – der Mühlenberg erwartet Sie.</p>
+          <p className="text-xl text-sky-100/70 max-w-2xl leading-relaxed">Ob Pferdeabenteuer für die Kids alleine oder entspannter Landurlaub für die ganze Familie – der Mühlenberg erwartet Sie.</p>
         </motion.div>
       </header>
       
@@ -77,7 +77,7 @@ export default function ReiterferienPage() {
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{p.desc}</p>
                 <span className="text-3xl font-display font-bold text-bark-800 mb-6">{p.preis}</span>
-                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-wheat-700 text-sand-100 font-bold rounded-lg hover:bg-wheat-800 transition-colors uppercase tracking-widest text-sm shadow-md">Platz sichern</motion.a>
+                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-[#bf9e32] text-sand-100 font-bold rounded-lg hover:bg-[#aa8c2c] active:bg-[#947a27] transition-colors uppercase tracking-widest text-sm shadow-md">Platz sichern</motion.a>
               </motion.div>
             ))}
           </div>
@@ -104,19 +104,19 @@ export default function ReiterferienPage() {
                 </div>
                 <p className="text-bark-600 mb-8 leading-relaxed flex-grow text-lg">{p.desc}</p>
                 <span className="text-3xl font-display font-bold text-bark-800 mb-6">{p.preis}</span>
-                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-wheat-700 text-sand-100 font-bold rounded-lg hover:bg-wheat-800 transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.a>
+                <motion.a href="/#kontakt" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block text-center w-full py-4 bg-[#bf9e32] text-sand-100 font-bold rounded-lg hover:bg-[#aa8c2c] active:bg-[#947a27] transition-colors uppercase tracking-widest text-sm shadow-md">Anfragen</motion.a>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-32 bg-wheat-800 text-sand-100 text-center px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><div className="absolute top-0 right-0 w-80 h-80 bg-wheat-400 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" /></div>
+      <section className="py-32 bg-sky-800 text-sand-100 text-center px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"><div className="absolute top-0 right-0 w-80 h-80 bg-sky-400 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" /></div>
         <div className="relative max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display mb-6">Plätze sind begrenzt</h2>
-          <p className="text-xl text-wheat-100/60 mb-10">Sichern Sie sich rechtzeitig einen Platz für die nächsten Ferien oder den Familienurlaub.</p>
-          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-wheat-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Jetzt anfragen</motion.a>
+          <p className="text-xl text-sky-100/60 mb-10">Sichern Sie sich rechtzeitig einen Platz für die nächsten Ferien oder den Familienurlaub.</p>
+          <motion.a href="/#kontakt" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block px-12 py-5 bg-sand-100 text-sky-900 font-bold rounded-xl shadow-xl hover:bg-white transition-colors">Jetzt anfragen</motion.a>
         </div>
       </section>
     </main>

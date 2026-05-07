@@ -245,7 +245,7 @@ export default function HomeContent({ newsData, teamData, pricingData, galleryDa
                   <div className="mt-8 text-center">
                     <button
                       onClick={() => setShowAllEvents(prev => !prev)}
-                      className="inline-flex items-center gap-2 px-8 py-3 bg-bark-800 text-sand-100 font-bold rounded hover:bg-bark-900 transition-colors text-sm uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-bark-400 focus:ring-offset-2 focus:ring-offset-sand-50"
+                      className="inline-flex items-center gap-2 px-8 py-3 bg-[#bf9e32] text-sand-100 font-bold rounded hover:bg-[#aa8c2c] active:bg-[#947a27] transition-colors text-sm uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-[#bf9e32]/40 focus:ring-offset-2 focus:ring-offset-sand-50"
                       aria-expanded={showAllEvents}
                       aria-controls="events-hidden"
                     >

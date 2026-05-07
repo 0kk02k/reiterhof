@@ -99,6 +99,18 @@ const config: Config = {
           800: '#6e3f4e',
           900: '#5b3743',
         },
+        heide: {
+          50: '#f5f2f7',
+          100: '#ebe4ef',
+          200: '#d9cbe1',
+          300: '#c2a9cf',
+          400: '#a884b8',
+          500: '#8e6a9e',
+          600: '#755583',
+          700: '#5f446c',
+          800: '#4d3758',
+          900: '#3e2d47',
+        },
       },
       fontFamily: {
         display: ['Lora', 'Georgia', 'serif'],
